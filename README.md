@@ -181,6 +181,69 @@ Further work will involve:
 - Comparing observational data with hydrodynamical simulations to understand low-density lens environments.
 
 ---
+## Code Overview: Stellar Mass vs. CDM Analysis
+
+This repository analyzes the stellar mass surface density near strong gravitational lenses and compares it to expectations from Cold Dark Matter (CDM) halo models. The analysis includes data collection, mass estimation, and threshold comparison scripts.
+
+---
+
+### `scripts/query_simbad_stellar_mass.py`
+
+This script uses the `lenscat` catalog and `astroquery` to query the SIMBAD database for all stellar-like objects within 20 arcminutes of each lens. Each object is assigned a nominal stellar mass based on object type (e.g., star, galaxy, AGN), and a projected stellar mass surface density is computed for each lens field.
+
+The script outputs per-batch results as `.csv` files in the `results/` folder and prints progress updates during execution.
+
+**Usage:**
+
+```bash
+python scripts/query_simbad_stellar_mass.py
+```
+
+➡️ [View full script](./scripts/query_simbad_stellar_mass.py)
+
+---
+
+### `scripts/stellar_mass_cdm_threshold_analysis.py`
+
+This script compares the estimated stellar surface densities from the SIMBAD queries to CDM expectations based on a fiducial stellar baryon fraction (e.g. `f_star = 0.05`). It computes CDM-predicted thresholds and determines what fraction of observed lens environments fall below them — potentially indicating CDM failure in low-density fields.
+
+The output includes percentile tables and threshold comparison plots.
+
+**Usage:**
+
+```bash
+python scripts/stellar_mass_cdm_threshold_analysis.py
+```
+
+➡️ [View full script](./scripts/stellar_mass_cdm_threshold_analysis.py)
+
+---
+
+## Data
+
+All results are contained in [`results/stellar_mass_summary.csv`](results/stellar_mass_summary.csv), which includes:
+- Lens ID, RA, DEC, redshift
+- All nearby SIMBAD stellar mass tracers
+- Surface density calculations (per arcmin²)
+```
+
+---
+
+###  Requirements
+
+To run these scripts, install the following Python packages:
+
+```bash
+pip install numpy pandas astropy astroquery matplotlib lenscat
+```
+
+---
+
+### Citation
+
+If you use this code or results, please cite this GitHub repository and/or the forthcoming publication:
+
+**"Observed Stellar Mass Environments Around Gravitational Lenses Challenge CDM Threshold Predictions"**
 
 
 
