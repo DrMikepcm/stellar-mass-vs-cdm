@@ -1,0 +1,66 @@
+# lens_stellar_mass_thresholds.py
+#
+# Analyze stellar mass surface densities near strong gravitational lenses,
+# comparing them against a Cold Dark Matter (CDM) mass surface density threshold.
+#
+# Inputs:
+#   - CSV file containing lens stellar mass data, expected columns:
+#       * 'mass_surface_density_Msun_per_Mpc2' (stellar surface density)
+#
+# Outputs:
+#   - Summary printed to console showing fraction of lenses below CDM threshold
+#     for a range of stellar baryon fractions (f_star)
+#
+# Usage:
+#   - Update the INPUT_CSV variable with your local CSV file path.
+#
+# Requirements:
+#   - pandas
+#   - numpy
+#
+# Author: Mike (replace with your name)
+# Date: 2025-07-26
+import pandas as pd
+import numpy as np
+
+# === LOAD DATA ===
+# Replace 'your_data_file.csv' with your actual CSV filename or relative path
+file_path = 'your_data_file.csv'
+
+# Load lens stellar mass data
+df = pd.read_csv(file_path)
+print(f"Loaded {len(df)} lenses")
+
+# Convert surface density from Msun/Mpc^2 to Msun/kpc^2 (1 Mpc^2 = 1,000,000 kpc^2)
+df['mass_surface_density_Msun_per_kpc2'] = df['mass_surface_density_Msun_per_Mpc2'] / 1e6
+
+# Define CDM threshold in Msun/kpc^2
+CDM_THRESHOLD = 1e8
+
+# Define stellar baryon fractions (f_star) to test
+f_star_values = np.arange(0.01, 0.21, 0.01)  # from 0.01 to 0.20 in steps of 0.01
+
+# Count lenses with zero mass surface density
+zero_mass_count = (df['mass_surface_density_Msun_per_Mpc2'] == 0).sum()
+total_lenses = len(df)
+print(f"Lenses with zero mass surface density: {zero_mass_count} out of {total_lenses} ({zero_mass_count/total_lenses:.1%})")
+
+# Filter out zero-mass lenses for threshold analysis
+nonzero_df = df[df['mass_surface_density_Msun_per_Mpc2'] > 0].copy()
+
+# Analyze how many lenses fall below the CDM threshold at each f_star
+results = []
+for f_star in f_star_values:
+    threshold = CDM_THRESHOLD * f_star
+    below_threshold = (nonzero_df['mass_surface_density_Msun_per_Mpc2'] < threshold).sum()
+    percent_below = 100 * below_threshold / len(nonzero_df)
+    results.append({
+        'f_star': f_star,
+        'lenses_below_threshold': below_threshold,
+        'percent_below_threshold': percent_below
+    })
+
+# Convert to DataFrame and print summary
+results_df = pd.DataFrame(results)
+print("\nSummary of lenses below CDM threshold (excluding zero-mass lenses):")
+print(results_df.to_string(index=False, float_format='%.2f'))
