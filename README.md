@@ -14,7 +14,7 @@ This discrepancy persists even under conservative assumptions of low stellar mas
 
 ---
 
-## 1. Introduction
+## Introduction
 
 Strong gravitational lensing serves as a powerful probe of galaxy mass distributions, including the elusive dark matter component. Standard $\Lambda$CDM cosmology predicts that strong lenses predominantly reside in massive, dense dark matter halos, with total projected mass densities exceeding approximately
 
@@ -26,7 +26,7 @@ However, stellar mass—measured via surface mass density—comprises only a fra
 
 ---
 
-## 2. Data and Methods
+## Methods
 
 We analyze a sample of 202 strong lens systems with measured stellar surface mass densities averaged within 20 arcminute radii around each lens. Assuming a range of stellar baryon fractions
 
@@ -69,10 +69,10 @@ We developed a pipeline to estimate the total stellar mass in the environment su
 This approach yields an approximate measure of the stellar mass environment around lenses and provides a basis for comparing observed densities with theoretical expectations from cold dark matter models.
 
 ---
-
-## 3. Results
+## Results
 
 Our analysis reveals that between 37% and 88% of lenses fall below the CDM threshold depending on the assumed baryon fraction, with nearly half (47%) below threshold at a moderate $f_* = 0.05$. Even adopting conservative low stellar fractions, a non-negligible fraction of lenses inhabit environments with inferred total mass densities too low to be explained by typical CDM halo masses.
+
 
 ### Stellar Mass Fraction and CDM Thresholds
 
@@ -91,8 +91,29 @@ $$
 being common. However, our analysis shows that only 3.4% of lenses fall below this threshold. Moreover, only 18.5% of lenses have $f_* < 0.05$, while a majority — 61.6% — have $f_* < 0.10$, and 81.5% fall below 0.20. These results suggest that the stellar component accounts for a significantly larger portion of the lensing mass than predicted by CDM in the majority of systems analyzed. This deviation points either to a systematic environmental difference in strong lenses or to a breakdown of dark matter assumptions, potentially supporting alternative models such as geometry-based mass contributions or curvature-driven lensing without dark matter.
 
 ---
+## Summary Table of Lenses Below CDM Threshold vs. Stellar Mass Fraction
 
-## 4. Discussion
+| $f_*$ | Lenses Below CDM Threshold | Total Lenses | Percentage Below Threshold (%) |
+|-------|----------------------------|--------------|-------------------------------|
+| 0.01  | 6                          | 912          | 0.7                           |
+| 0.03  | 42                         | 912          | 4.6                           |
+| 0.05  | 180                        | 912          | 19.7                          |
+| 0.06  | 282                        | 912          | 30.9                          |
+| 0.07  | 414                        | 912          | 45.4                          |
+| 0.08  | 468                        | 912          | 51.3                          |
+| 0.09  | 501                        | 912          | 54.9                          |
+| 0.10  | 561                        | 912          | 61.5                          |
+| 0.20  | 738                        | 912          | 80.9                          |
+
+
+
+---
+## Interpretaiton 
+
+Our analysis reveals that many lenses exhibit stellar mass surface densities so high that, when standard cold dark matter (CDM) fractions are applied to infer total mass, the result is more gravitational mass than the lensing actually requires. In other words, adding typical CDM baryon fractions (e.g., $f_* = 0.05$) leads to total mass estimates that overshoot the amount of mass implied by the observed light-bending. This suggests that either stellar mass dominates the lensing signal, or that CDM-based expectations overpredict the necessary halo mass in these systems.
+
+
+## Discussion
 
 These findings suggest that either dark matter halos in lens systems are systematically more massive or concentrated than predicted, or that additional factors—such as environmental contributions, external shear, or alternative physics—play a critical role in producing observed strong lensing. Our work thus challenges standard assumptions about lens environments within the CDM paradigm.
 
@@ -117,6 +138,14 @@ This opens a path for new models of cosmic structure that do not rely on massive
 The presence of strong gravitational lenses in low-density stellar environments underscores the need to revisit dark matter halo modeling and environmental effects in lensing studies. Future work with larger samples and detailed environment characterization will further elucidate the interplay between baryons and dark matter in shaping strong lensing phenomena.
 
 ---
+## Data
+
+All raw results are contained in [`results/1486combined_lens_stellar_mass_all_2025Jul.csv`](results/1486combined_lens_stellar_mass_all_2025Jul.csv)
+, which includes:
+- Lens ID, RA, DEC, redshift
+- All nearby SIMBAD stellar mass tracers
+- Surface density calculations (per arcmin²)
+---
 
 ## Appendix: Baryon Fraction and Its Impact on Strong Lensing Mass Estimates
 
@@ -129,22 +158,6 @@ $$
 plays a crucial role in interpreting strong lensing observations. A very low $f_*$ (e.g., 1%) implies that stars constitute only a tiny fraction of the total mass, with the majority comprised of gas and dark matter. In this case, the total mass inferred from the measured stellar surface density is significantly amplified, making it easier for standard Cold Dark Matter (CDM) models to account for the observed lensing signals. Conversely, higher baryon fractions (5–10%), which are more typical of massive elliptical galaxies, suggest stars contribute a more substantial portion of the total mass. This reduces the inferred total mass for a given stellar surface density, leading to a large fraction of lenses falling below the CDM-predicted minimum mass threshold necessary for strong lensing.
 
 Our analysis reveals that, assuming realistic baryon fractions, a significant number of lenses with low stellar surface densities have total masses too low to be explained by CDM alone, highlighting a tension that may indicate the need for additional mass components or alternative physical mechanisms.
-
----
-
-## Summary Table of Lenses Below CDM Threshold vs. Stellar Mass Fraction
-
-| $f_*$ | Lenses Below CDM Threshold | Total Lenses | Percentage Below Threshold (%) |
-|-------|----------------------------|--------------|-------------------------------|
-| 0.01  | 6                          | 912          | 0.7                           |
-| 0.03  | 42                         | 912          | 4.6                           |
-| 0.05  | 180                        | 912          | 19.7                          |
-| 0.06  | 282                        | 912          | 30.9                          |
-| 0.07  | 414                        | 912          | 45.4                          |
-| 0.08  | 468                        | 912          | 51.3                          |
-| 0.09  | 501                        | 912          | 54.9                          |
-| 0.10  | 561                        | 912          | 61.5                          |
-| 0.20  | 738                        | 912          | 80.9                          |
 
 ---
 
@@ -216,17 +229,6 @@ python scripts/stellar_mass_cdm_threshold_analysis.py
 ```
 
 ➡️ [View full script](./scripts/stellar_mass_cdm_threshold_analysis.py)
-
----
-
-## Data
-
-All results are contained in [`results/1486combined_lens_stellar_mass_all_2025Jul.csv`](results/1486combined_lens_stellar_mass_all_2025Jul.csv)
-, which includes:
-- Lens ID, RA, DEC, redshift
-- All nearby SIMBAD stellar mass tracers
-- Surface density calculations (per arcmin²)
-```
 
 ---
 
