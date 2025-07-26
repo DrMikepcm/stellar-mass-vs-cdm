@@ -1,38 +1,71 @@
+"""
+Analyze stellar mass surface densities near strong gravitational lenses,
+comparing them against a Cold Dark Matter (CDM) mass surface density threshold.
+
+Inputs:
+  - CSV file containing lens stellar mass data with columns including:
+      * 'mass_surface_density_Msun_per_Mpc2' (stellar surface density)
+      * 'redshift' (optional, for filtering valid lenses)
+
+Outputs:
+  - Prints summary of fraction of lenses below CDM threshold for a range of stellar baryon fractions (f_star)
+  - Saves a CSV file 'results/lens_threshold_summary.csv' with threshold results for reproducibility
+
+Usage:
+  - Update the INPUT_CSV path to your local data file or relative path
+  - Run the script in an environment with pandas and numpy installed
+
+Author: Michael Feldstein
+Date: 2025-07-26
+"""
+
 import pandas as pd
 import numpy as np
+import os
 
-# Path to the saved query results CSV (adjust if needed)
-progress_file = 'lens_stellar_mass_progress.csv'
+# === CONFIG ===
+INPUT_CSV = 'results/lens_stellar_mass_data.csv'  # replace with your CSV relative path
+OUTPUT_CSV = 'results/lens_threshold_summary.csv'
+CDM_THRESHOLD = 1e8  # Msun/kpc^2
 
-# Load data
-df = pd.read_csv(progress_file)
+# === LOAD DATA ===
+df = pd.read_csv(INPUT_CSV)
+print(f"Loaded {len(df)} lenses from {INPUT_CSV}")
 
-# Convert surface density units: M_sun/Mpc^2 to M_sun/kpc^2
-df['mass_surface_density_kpc2'] = df['mass_surface_density_Msun_per_Mpc2'] / 1e6
+# Convert surface density from Msun/Mpc^2 to Msun/kpc^2 (1 Mpc^2 = 1,000,000 kpc^2)
+df['mass_surface_density_Msun_per_kpc2'] = df['mass_surface_density_Msun_per_Mpc2'] / 1e6
 
-# Filter for valid redshift and positive surface density
-df_filtered = df[(df['mass_surface_density_kpc2'] > 0) & (df['redshift'] > 0)].copy()
+# Optional filtering for valid positive surface density and redshift if available
+if 'redshift' in df.columns:
+    df_filtered = df[(df['mass_surface_density_Msun_per_kpc2'] > 0) & (df['redshift'] > 0)].copy()
+else:
+    df_filtered = df[df['mass_surface_density_Msun_per_kpc2'] > 0].copy()
 
 total_lenses = len(df_filtered)
+print(f"Lenses with valid redshift and positive stellar surface density: {total_lenses}")
 
-print(f"Total lenses with valid redshift and non-zero stellar surface density: {total_lenses}\n")
+# Stellar baryon fractions (f_star) to test
+f_star_values = np.arange(0.01, 0.21, 0.01)  # 0.01 to 0.20 step 0.01
 
-# CDM threshold (in M_sun/kpc^2)
-cdm_threshold = 1e8
-
-# List of stellar mass fraction (f_star) values to test
-f_star_values = [0.01, 0.03, 0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.20]
-
-print(f"{'f_star':>7} | {'Below Threshold':>15} | {'Total Lenses':>12} | {'Percent Below Threshold':>23}")
-print("-" * 65)
-
+# Calculate how many lenses fall below the CDM threshold at each f_star
+results = []
 for f_star in f_star_values:
-    # Infer total mass by dividing stellar surface density by f_star
-    inferred_total = df_filtered['mass_surface_density_kpc2'] / f_star
+    # Inferred total mass surface density = stellar surface density / f_star
+    inferred_total_mass = df_filtered['mass_surface_density_Msun_per_kpc2'] / f_star
+    below_threshold_count = (inferred_total_mass < CDM_THRESHOLD).sum()
+    percent_below = 100 * below_threshold_count / total_lenses
+    results.append({
+        'f_star': round(f_star, 3),
+        'lenses_below_threshold': below_threshold_count,
+        'percent_below_threshold': round(percent_below, 2)
+    })
 
-    # Count how many lenses fall below the CDM threshold
-    below_threshold = (inferred_total < cdm_threshold)
-    n_below = below_threshold.sum()
-    pct_below = n_below / total_lenses * 100
+# Save results to CSV
+results_df = pd.DataFrame(results)
+os.makedirs('results', exist_ok=True)
+results_df.to_csv(OUTPUT_CSV, index=False)
+print(f"\nSaved threshold summary to {OUTPUT_CSV}")
 
-    print(f"{f_star:7.2f} | {n_below:15d} | {total_lenses:12d} | {pct_below:23.1f}%")
+# Print summary table
+print("\nSummary of lenses below CDM threshold:")
+print(results_df.to_string(index=False))
