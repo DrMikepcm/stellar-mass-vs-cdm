@@ -221,7 +221,8 @@ python scripts/stellar_mass_cdm_threshold_analysis.py
 
 ## Data
 
-All results are contained in [`results/stellar_mass_summary.csv`](results/stellar_mass_summary.csv), which includes:
+All results are contained in [`results/1486combined_lens_stellar_mass_all_2025Jul.csv`](results/1486combined_lens_stellar_mass_all_2025Jul.csv)
+, which includes:
 - Lens ID, RA, DEC, redshift
 - All nearby SIMBAD stellar mass tracers
 - Surface density calculations (per arcmin²)
