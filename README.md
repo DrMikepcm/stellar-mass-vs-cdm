@@ -69,11 +69,6 @@ We developed a pipeline to estimate the total stellar mass in the environment su
 This approach yields an approximate measure of the stellar mass environment around lenses and provides a basis for comparing observed densities with theoretical expectations from cold dark matter models.
 
 ---
-## Results
-
-Our analysis reveals that between 37% and 88% of lenses fall below the CDM threshold depending on the assumed baryon fraction, with nearly half (47%) below threshold at a moderate $f_* = 0.05$. Even adopting conservative low stellar fractions, a non-negligible fraction of lenses inhabit environments with inferred total mass densities too low to be explained by typical CDM halo masses.
-
-
 ### Stellar Mass Fraction and CDM Thresholds
 
 To evaluate whether the lensing systems in our sample are consistent with expectations from Cold Dark Matter (CDM) halo models, we calculated the stellar mass fraction
