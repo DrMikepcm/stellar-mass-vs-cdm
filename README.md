@@ -54,9 +54,9 @@ We developed a pipeline to estimate the total stellar mass in the environment su
 
 - **Stellar Mass Assignment:** Objects classified as galaxies (SDSS type code 6) are assigned a nominal stellar mass of
 
-  $$
-  5 \times 10^{10} \; M_\odot,
-  $$
+$$
+5 \times 10^{10} \; M_\odot,
+$$
 
   representing a typical stellar mass for SDSS galaxies. Non-galaxy objects are assigned zero mass. Total stellar mass within the 20' aperture is computed by summing these galaxy masses.
 
@@ -105,7 +105,62 @@ being common. However, our analysis shows that only 3.4% of lenses fall below th
 ---
 ## Interpretaiton 
 
-Our analysis reveals that many lenses exhibit stellar mass surface densities so high that, when standard cold dark matter (CDM) fractions are applied to infer total mass, the result is more gravitational mass than the lensing actually requires. In other words, adding typical CDM baryon fractions (e.g., $f_* = 0.05$) leads to total mass estimates that overshoot the amount of mass implied by the observed light-bending. This suggests that either stellar mass dominates the lensing signal, or that CDM-based expectations overpredict the necessary halo mass in these systems.
+## Bullet Cluster Case Study: Stellar Mass Estimation
+
+To complement the statistical trends across the large strong lens sample, we performed a direct analysis of the Bullet Cluster (1E 0657–558) using WISE W1-band photometry.
+
+### Localized Stellar Mass Estimation
+
+We conducted a focused search for galaxies within a 0.5 arcminute radius around the Bullet Cluster center (RA = 104.6458°, DEC = -55.6748°), isolating the region responsible for strong lensing and minimizing contamination from distant cluster members or foreground/background sources. Using the SIMBAD database via `astroquery.simbad`, a single galaxy was identified within this aperture, likely the dominant stellar mass contributor.
+
+The galaxy's WISE W1 apparent magnitude (~3.4 µm) was found to be approximately 16.685, a robust tracer of stellar mass due to minimal dust extinction.
+
+Stellar mass estimation proceeded as follows:
+
+- **Luminosity Distance:** Using the galaxy redshift $z = 0.296$ (consistent with the Bullet Cluster), the luminosity distance was computed with the Planck18 cosmology.
+
+- **Absolute Magnitude:** Converted from apparent magnitude using
+
+$$
+M_{W1} = m_{W1} - 5 \times \log_{10} \left( \frac{d_L}{10\, \mathrm{pc}} \right)
+$$
+
+- **Luminosity in Solar Units:** Using the Sun’s absolute W1 magnitude $M_{\odot,W1} \approx 3.24$,
+
+$$
+L_{W1} = 10^{-0.4 (M_{W1} - M_{\odot,W1})}
+$$
+
+- **Stellar Mass:** Applying a mass-to-light ratio $(M/L)_{W1} = 0.6 \, M_{\odot}/L_{\odot}$ typical for old stellar populations,
+
+$$
+  M_* = (M/L)_{W1} \times L_{W1}
+$$
+
+This yields a stellar mass estimate of approximately $6.3 \times 10^{10} \, M_{\odot}$ for the localized galaxy.
+
+### Surface Density and Comparison
+
+Alternatively, using the WISE W1 magnitude within the same 0.5′ aperture and an assumed Einstein radius $R_E = 5\, \mathrm{kpc}$, we derived a stellar surface mass density:
+
+$$
+\Sigma_* = \frac{M_*}{\pi R_E^2} \approx 4.9 \times 10^{8} \, M_{\odot}/\mathrm{kpc}^2
+$$
+
+Assuming a typical cosmic baryon fraction $f_* = 0.05$, the implied total mass surface density is
+
+$$
+\Sigma_{\mathrm{total}} = \frac{\Sigma_*}{f_*} \approx 9.8 \times 10^{9} \, M_{\odot}/\mathrm{kpc}^2,
+$$
+
+which exceeds the canonical CDM strong lensing threshold of $1 \times 10^{8} \, M_{\odot}/\mathrm{kpc}^2$.
+
+This case study illustrates that the Bullet Cluster's strong lensing region contains substantial stellar mass, sufficient to account for the observed lensing effects without invoking large dark matter halos.
+
+---
+
+This localized measurement supports and refines our broader survey results, indicating that stellar mass alone may explain lensing in some massive clusters, challenging standard dark matter interpretations.
+
 
 
 ## Discussion
