@@ -137,7 +137,7 @@ $$
 - **Stellar Mass:** Applying a mass-to-light ratio $(M/L)_{W1} = 0.6 \, M_{\odot}/L_{\odot}$ typical for old stellar populations,
 
 $$
-  M_* = (M/L)_{W1} \times L_{W1}
+M_* = (M/L)_{W1} \times L_{W1}
 $$
 
 This yields a stellar mass estimate of approximately $6.3 \times 10^{10} \, M_{\odot}$ for the localized galaxy.
