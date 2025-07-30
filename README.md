@@ -330,7 +330,7 @@ Estimates lensing mass from a circular Einstein radius approximation (~5 kpc), c
 python scripts/einstein_radius_stellar_density.py
 ```
 ➡️ [View full script](scripts/einstein_radius_stellar_density.py)
-```
+
 
 ---
 
@@ -344,7 +344,7 @@ Retrieves and integrates catalog-based SED stellar masses from SIMBAD/VizieR for
 python scripts/bullet_cluster_stellar_mass_sed.py
 ```
 ➡️ [View full script](scripts/bullet_cluster_stellar_mass_sed.py)
-```
+
 
 ---
 
