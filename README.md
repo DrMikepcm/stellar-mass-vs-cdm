@@ -300,15 +300,116 @@ To run these scripts, install the following Python packages:
 ```bash
 pip install numpy pandas astropy astroquery matplotlib lenscat
 ```
+## 🛰 Bullet Cluster Case Study Scripts
+
+These scripts provide **three independent methods** to estimate the stellar mass surface density in the Bullet Cluster field, testing whether observed stellar content is sufficient to account for lensing without invoking CDM halos.
 
 ---
 
-### Citation
+### `scripts/bullet_cluster_wise_photometry.py`
+
+Uses **WISE W1-band infrared flux measurements** (within a 0.5′ aperture) to estimate stellar mass via luminosity-to-mass conversions.
+
+**Usage:**
+
+```bash
+python scripts/bullet_cluster_wise_photometry.py
+➡️ [View full script](./scripts/stellar_mass_cdm_threshold_analysis.py)
+```
+
+---
+
+### `scripts/bullet_cluster_einstein_mass.py`
+
+Estimates lensing mass from a circular Einstein radius approximation (~5 kpc), converting the angular radius to enclosed mass using standard lensing equations.
+
+**Usage:**
+
+```bash
+python scripts/bullet_cluster_einstein_mass.py
+➡️ [View full script](./scripts/stellar_mass_cdm_threshold_analysis.py)
+```
+
+---
+
+### `scripts/bullet_cluster_catalog_mass.py`
+
+Retrieves and integrates catalog-based SED stellar masses from SIMBAD/VizieR for galaxies in the Bullet Cluster region to derive a total projected stellar mass.
+
+**Usage:**
+
+```bash
+python scripts/bullet_cluster_catalog_mass.py
+➡️ [View full script](./scripts/stellar_mass_cdm_threshold_analysis.py)
+```
+
+---
+
+### 🧩 Requirements
+
+Install all required packages:
+
+\```bash
+pip install numpy pandas astropy astroquery matplotlib lenscat photutils
+\```
+
+---
+
+---
+
+## 📚 References
+
+1. Planck Collaboration et al., 2018, *Planck 2018 results. VI. Cosmological parameters*, [arXiv:1807.06209](https://arxiv.org/abs/1807.06209)
+
+2. SDSS Collaboration, York et al., 2000, *The Sloan Digital Sky Survey: Technical Summary*, AJ, 120, 1579, [SDSS website](https://www.sdss.org/)
+
+3. Wright, E. L., 2006, *A Cosmology Calculator for the World Wide Web*, PASP, 118, 1711, [arXiv:astro-ph/0609593](https://arxiv.org/abs/astro-ph/0609593)
+
+4. Cutri et al., 2012, *WISE All-Sky Data Release*, [WISE data archive](https://wise2.ipac.caltech.edu/docs/release/allsky/)
+
+5. Wenger et al., 2000, *The SIMBAD astronomical database*, A&AS, 143, 9, [SIMBAD](http://simbad.u-strasbg.fr/simbad/)
+
+---
+
+## 📖 Citation
 
 If you use this code or results, please cite this GitHub repository and/or the forthcoming publication:
 
 **"Observed Stellar Mass Environments Around Gravitational Lenses Challenge CDM Threshold Predictions"**
 
+---
+
+## 🧩 License
+
+This repository is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🤝 Acknowledgements
+
+- Thanks to the teams behind [Astroquery](https://astroquery.readthedocs.io/), [Lenscat](https://github.com/username/lenscat), [SIMBAD](http://simbad.u-strasbg.fr/simbad/), and other open-source tools used in this analysis.
+
+- Based on data from the Sloan Digital Sky Survey (SDSS) and WISE.
+
+---
+
+## 📞 Contact
+
+For questions or collaborations, please contact [Your Name](mailto:your.email@example.com).
+
+---
+
+## 🚀 Next Steps
+
+- Add spectroscopic stellar mass measurements.
+
+- Incorporate gas mass and environmental contributions.
+
+- Compare with hydrodynamical simulations.
+
+- Extend analysis to larger lens samples.
+
+---
 
 
 
