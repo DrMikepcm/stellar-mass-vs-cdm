@@ -352,9 +352,9 @@ python scripts/bullet_cluster_stellar_mass_sed.py
 
 Install all required packages:
 
-\```bash
+```bash
 pip install numpy pandas astropy astroquery matplotlib lenscat photutils
-\```
+```
 
 ---
 
