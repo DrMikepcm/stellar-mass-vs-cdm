@@ -161,6 +161,16 @@ This case study illustrates that the Bullet Cluster's strong lensing region cont
 
 This localized measurement supports and refines our broader survey results, indicating that stellar mass alone may explain lensing in some massive clusters, challenging standard dark matter interpretations.
 
+## Bullet Cluster Stellar Mass Estimation Methods
+
+| Method                      | Stellar Mass (M☉)       | Stellar Surface Density (M☉/kpc²) | Notes                                   |
+|-----------------------------|-------------------------|----------------------------------|-----------------------------------------|
+| 1. WISE W1 Band Photometry  | 3.9 × 10¹⁰              | 4.91 × 10⁸                       | Localized aperture (0.5 arcmin) estimate|
+| 2. Einstein Radius Approx.  | 3.9 × 10¹⁰              | 4.91 × 10⁸                       | Based on assumed 5 kpc Einstein radius  |
+| 3. Catalog SED Fitting (Sim.)| 3.0 × 10¹¹             | 2.06 × 10⁹                       | Total stellar mass from SED catalog     |
+
+---
+
 
 
 ## Discussion
