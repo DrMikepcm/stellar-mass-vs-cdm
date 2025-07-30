@@ -314,7 +314,7 @@ Uses **WISE W1-band infrared flux measurements** (within a 0.5′ aperture) to e
 
 ```bash
 python scripts/bullet_cluster_wise_photometry.py
-➡️ [View full script](./scripts/stellar_mass_cdm_threshold_analysis.py)
+➡️ [View full script](scripts/bullet_cluster_stellar_mass.py)
 ```
 
 ---
