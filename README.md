@@ -342,7 +342,7 @@ Retrieves and integrates catalog-based SED stellar masses from SIMBAD/VizieR for
 
 ```bash
 python scripts/bullet_cluster_stellar_mass_sed.py
-
+```
 ➡️ [View full script](scripts/bullet_cluster_stellar_mass_sed.py)
 ```
 
