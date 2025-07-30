@@ -306,40 +306,43 @@ These scripts provide **three independent methods** to estimate the stellar mass
 
 ---
 
-### `scripts/bullet_cluster_wise_photometry.py`
+### `scripts/bullet_cluster_stellar_mass.py
 
 Uses **WISE W1-band infrared flux measurements** (within a 0.5′ aperture) to estimate stellar mass via luminosity-to-mass conversions.
 
 **Usage:**
 
 ```bash
-python scripts/bullet_cluster_wise_photometry.py
-➡️ [View full script](scripts/bullet_cluster_stellar_mass.py)
+python scripts/bullet_cluster_stellar_mass.py
 ```
+➡️ [View full script](scripts/bullet_cluster_stellar_mass.py)
+
 
 ---
 
-### `scripts/bullet_cluster_einstein_mass.py`
+### `scripts/einstein_radius_stellar_density.py
 
 Estimates lensing mass from a circular Einstein radius approximation (~5 kpc), converting the angular radius to enclosed mass using standard lensing equations.
 
 **Usage:**
 
 ```bash
-python scripts/bullet_cluster_einstein_mass.py
+python scripts/einstein_radius_stellar_density.py
+```
 ➡️ [View full script](scripts/einstein_radius_stellar_density.py)
 ```
 
 ---
 
-### `scripts/bullet_cluster_catalog_mass.py`
+### `scripts/bullet_cluster_stellar_mass_sed.py`
 
 Retrieves and integrates catalog-based SED stellar masses from SIMBAD/VizieR for galaxies in the Bullet Cluster region to derive a total projected stellar mass.
 
 **Usage:**
 
 ```bash
-python scripts/bullet_cluster_catalog_mass.py
+python scripts/bullet_cluster_stellar_mass_sed.py
+
 ➡️ [View full script](scripts/bullet_cluster_stellar_mass_sed.py)
 ```
 
