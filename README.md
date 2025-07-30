@@ -103,7 +103,10 @@ being common. However, our analysis shows that only 3.4% of lenses fall below th
 
 
 ---
-## Interpretaiton 
+## Interpretation 
+
+The table above shows the number and fraction of strong lenses that fall below various stellar mass fraction ($f_*$) thresholds, compared to expectations from standard Cold Dark Matter (CDM) models. Notably, only a small percentage of lenses (around 4.6%) have stellar mass fractions below the commonly predicted CDM threshold of $f_* \lesssim 0.03$, which implies that the majority of lenses possess a larger fraction of their total mass in stars than CDM simulations typically predict.
+
 
 ## Bullet Cluster Case Study: Stellar Mass Estimation
 
@@ -156,8 +159,6 @@ $$
 which exceeds the canonical CDM strong lensing threshold of $1 \times 10^{8} \, M_{\odot}/\mathrm{kpc}^2$.
 
 This case study illustrates that the Bullet Cluster's strong lensing region contains substantial stellar mass, sufficient to account for the observed lensing effects without invoking large dark matter halos.
-
----
 
 This localized measurement supports and refines our broader survey results, indicating that stellar mass alone may explain lensing in some massive clusters, challenging standard dark matter interpretations.
 
