@@ -327,7 +327,7 @@ Estimates lensing mass from a circular Einstein radius approximation (~5 kpc), c
 
 ```bash
 python scripts/bullet_cluster_einstein_mass.py
-➡️ [View full script](./scripts/stellar_mass_cdm_threshold_analysis.py)
+➡️ [View full script](scripts/einstein_radius_stellar_density.py)
 ```
 
 ---
