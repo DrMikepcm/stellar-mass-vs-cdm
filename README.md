@@ -34,10 +34,10 @@ $$
 f_* = 0.01 - 0.20,
 $$
 
-we infer total projected mass densities via
+we infer total projected mass densities by dividing the stellar surface mass density by the stellar baryon fraction, represented as:
 
 $$
-\Sigma_{\mathrm{total}} = \frac{\Sigma_*}{f_*}
+\Sigma_{\mathrm{total}} = \Sigma_* / f_* $$
 $$
 
 and compare these to the CDM strong lensing threshold.
