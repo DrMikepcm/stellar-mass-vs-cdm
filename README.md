@@ -266,6 +266,7 @@ python scripts/query_simbad_stellar_mass.py
 
 
 # stellar-mass-vs-cdm
+```
 This repo analyzes stellar mass near strong gravitational lenses versus Cold Dark Matter (CDM) predictions. It includes data, scripts, and results showing how observed stellar surface densities consistently challenge CDM thresholds across growing lens samples, highlighting potential gaps in dark matter models.
 # Evidence for Strong Gravitational Lenses in Low-Density Stellar Environments Challenges Standard Cold Dark Matter Models
 
@@ -401,12 +402,38 @@ $$
 L_{W1} = 10^{-0.4 (M_{W1} - M_{\odot,W1})}
 $$
 
+
+- **Stellar Mass:** Applying a mass-to-light ratio
+
+  $$
+  (M/L)_{W1} = 0.6 \, M_{\odot} / L_{\odot}
+  $$
+
+  typical for old stellar populations, the stellar mass is
+
+  $$
+  M_* = (M/L)_{W1} \times L_{W1}
+  $$
+
 - **Stellar Mass:** Applying a mass-to-light ratio $(M/L)_{W1} = 0.6 \, M_{\odot}/L_{\odot}$ typical for old stellar populations,
 
 $$
 M_* = (M/L)_{W1} \times L_{W1}
 $$
 
+
+This yields a stellar mass estimate of approximately
+$6.3 \times 10^{10} \, M_{\odot}$
+for the localized galaxy.
+
+Applying a mass-to-light ratio $(M/L)_{W1} = 0.6 \, M_{\odot}/L_{\odot}$ typical for old stellar populations,
+
+$$
+M_* = (M/L)_{W1} \times L_{W1}
+$$
+$$
+M_* = (M/L)_{W1} \times L_{W1}
+$$
 This yields a stellar mass estimate of approximately $6.3 \times 10^{10} \, M_{\odot}$ for the localized galaxy.
 
 ### Surface Density and Comparison
@@ -429,7 +456,22 @@ This case study illustrates that the Bullet Cluster's strong lensing region cont
 
 This localized measurement supports and refines our broader survey results, indicating that stellar mass alone may explain lensing in some massive clusters, challenging standard dark matter interpretations.
 
-## Bullet Cluster Stellar Mass Estimation Methods
+## Bullet Cluster Core Galaxy
+
+| Quantity                     | Value                                | Notes                                  |
+|-----------------------------|------------------------------------|--------------------------------------|
+| Redshift ($z$)              | 0.296                              | Bullet Cluster system                 |
+| Radius                      | 0.5′                               | Circular aperture centered on core   |
+| Central Galaxy Coordinates  | RA: 104.6458°, Dec: –55.6748°      | Dominant lensing galaxy               |
+| WISE W1 Luminosity          | $1.05 \times 10^{11} L_{\odot}$   | From 3.4 µm flux                      |
+| $M/L$ Ratio (W1)            | $0.6\, M_{\odot}/L_{\odot}$        | Standard for old stellar populations  |
+| Refined Stellar Mass        | $6.3 \times 10^{10} M_{\odot}$    |  From WISE W1 and $M/L = 0.6$            |
+| Assumed Einstein Radius     | 5 kpc                             | Typical lensing scale                 |
+| Stellar Surface Density ($\Sigma_*$) | $8.0 \times 10^{8} M_{\odot}/\mathrm{kpc}^2$ | Within aperture          |
+| SED-Based Total Stellar Mass| $\sim 3.0 \times 10^{11} M_{\odot}$ | From public catalogs (SED fitting)   |
+| Total $\Sigma_*$ Over Full Extent | $2.06 \times 10^{9} M_{\odot}/\mathrm{kpc}^2$ | Using total mass and effective radius |
+| Implied Total Mass Surface Density | $1.6 \times 10^{10} M_{\odot}/\mathrm{kpc}^2$ |  From $\Sigma_*$ and $f_* = 0.05$     |
+| CDM Halo Threshold          | $\sim 10^{8} M_{\odot}/\mathrm{kpc}^2$ | Canonical value (Donato et al. 2009) |
 
 | Method                      | Stellar Mass (M☉)       | Stellar Surface Density (M☉/kpc²) | Notes                                   |
 |-----------------------------|-------------------------|----------------------------------|-----------------------------------------|
