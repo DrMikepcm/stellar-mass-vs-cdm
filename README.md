@@ -43,6 +43,74 @@ $$
 These inferred total densities are then compared to the canonical CDM strong lensing threshold of $\Sigma_{\text{threshold}} = 1 \times 10^8 \; M_\odot / \text{kpc}^2$.
 
 ---
+## 3. Key Findings
+
+Our analysis reveals a significant tension between observed lensing systems and standard CDM predictions, particularly regarding the stellar mass fraction ($f_\star$) of lenses:
+
+* **Prevalence of High $f_\star$:** $\Lambda$CDM-based simulations typically predict low stellar mass fractions for galaxy-scale lenses, with $f_\star \lesssim 0.03$ being common. However, our analysis of 912 strong gravitational lenses shows that only 4.6% fall below this threshold, implying the majority of lenses possess a larger fraction of their total mass in stars than $\Lambda$CDM simulations typically predict.
+
+**Figure 1: Proxy Stellar Mass Fraction Distribution, Sensitivity Analysis, and $\Lambda$CDM Tension**
+
+![Proxy Stellar Mass Fraction Histogram](images/f_star_histogram_scaled_variants.png)
+
+This histogram illustrates the distribution of the proxy stellar mass fraction ($f_\star$) for 912 strong lensing galaxies. To account for uncertainties in stellar mass measurements, overlaid distributions show how $f_\star$ varies when stellar mass is systematically scaled by $\pm$25%, $\pm$50%, and $\pm$75%. This sensitivity analysis highlights the range of possible distributions given assumed measurement uncertainties.
+
+The figure also demonstrates tension with $\Lambda$CDM predictions. The red dashed line at $f_\star = 0.03$ marks the canonical $\Lambda$CDM threshold for the stellar mass fraction. A significant portion of the observed lenses (even when considering reduced stellar mass estimates from the sensitivity analysis) consistently exhibit $f_\star$ values greater than this $\Lambda$CDM threshold. This visual evidence suggests that the stellar component accounts for a larger fraction of the lensing mass than predicted by $\Lambda$CDM models in many observed systems, challenging standard dark matter interpretations.
+
+* **Summary of Lenses Below CDM Threshold vs. Stellar Mass Fraction:**
+
+| $f_\star$ | Lenses Below CDM Threshold | Total Lenses | Percentage Below Threshold (%) |
+| :---- | :------------------------- | :----------- | :----------------------------- |
+| 0.01  | 6                          | 912          | 0.7                            |
+| 0.03  | 42                         | 912          | 4.6                            |
+| 0.05  | 180                        | 912          | 19.7                           |
+| 0.06  | 282                        | 912          | 30.9                           |
+| 0.07  | 414                        | 912          | 45.4                           |
+| 0.08  | 468                        | 912          | 51.3                           |
+| 0.09  | 501                        | 912          | 54.9                           |
+| 0.10  | 561                        | 912          | 61.5                           |
+| 0.20  | 738                        | 912          | 80.9                           |
+
+These results consistently suggest that the stellar component accounts for a significantly larger portion of the lensing mass than predicted by CDM in the majority of systems analyzed. This deviation points either to systematic environmental differences in strong lenses or to a breakdown of dark matter assumptions.
+
+## 3. Key Findings
+
+Our analysis reveals a significant tension between observed lensing systems and standard CDM predictions, particularly regarding the stellar mass fraction ($f_\star$) of lenses:
+
+* **Prevalence of High $f_\star$:** $\Lambda$CDM-based simulations typically predict low stellar mass fractions for galaxy-scale lenses, with $f_\star \lesssim 0.03$ being common. However, our analysis of 912 strong gravitational lenses shows that only 4.6% fall below this threshold, implying the majority of lenses possess a larger fraction of their total mass in stars than $\Lambda$CDM simulations typically predict.
+
+**Figure 1: Proxy Stellar Mass Fraction Distribution, Sensitivity Analysis, and $\Lambda$CDM Tension**
+
+![Proxy Stellar Mass Fraction Histogram](results/fstar_histogram_scaled_variants.png)
+
+This histogram presents a comprehensive view of the proxy stellar mass fraction ($f_\star$) for 912 strong lensing galaxies, derived from our observational sample. The x-axis represents the proxy stellar mass fraction, zoomed to show values from 0.000 to 0.042, while the y-axis indicates the number of lenses within each bin.
+
+The figure is designed to illustrate two key aspects of our research:
+
+1.  **Illustration of "Error Bars" (Sensitivity Analysis):** The histogram does not display traditional error bars on individual data points or bins. Instead, it illustrates the **sensitivity of our results to uncertainties in stellar mass measurements** by showing scaled variants of the proxy stellar mass fraction.
+    * **Scaled Distributions:** The plot shows multiple histograms overlaid: "Original stellar mass" (black hatched bars) represents your primary calculation of the proxy stellar mass fraction ($f_\star$). Then, there are **scaled variants** where the underlying stellar mass is hypothetically adjusted: "-75% stellar mass", "-50% stellar mass", "-25% stellar mass", "+25% stellar mass", "+50% stellar mass", and "+75% stellar mass". These are generated in the script by multiplying the `f_star_proxy` by factors like 0.25, 0.5, 0.75, 1.25, 1.5, and 1.75 respectively.
+    * **Interpretation as Uncertainty Bounds:** Each of these scaled distributions represents a scenario where stellar mass estimates might be systematically lower or higher by a certain percentage. By observing how the overall shape and position of the histogram shift under these scenarios, we effectively show the **range of possible distributions** given an assumed uncertainty in stellar mass measurements. For example, if the true stellar mass were 25% lower, the distribution would look like the blue bars, and if it were 25% higher, it would look like the light green bars. This provides a robust way to understand how conclusions might change within reasonable bounds of measurement uncertainty, highlighting the impact of systematic biases in stellar mass estimation.
+
+2.  **Illustration of Tension with Cold Dark Matter ($\Lambda$CDM):** The histogram effectively illustrates the tension between our stellar mass measurements and $\Lambda$CDM predictions through the placement of the distributions relative to the $\Lambda$CDM threshold.
+    * **The $\Lambda$CDM Threshold:** The prominent **red dashed vertical line at $f_\star = 0.03$** represents the "$\Lambda$CDM threshold". This value is typically a common prediction for the maximum stellar mass fraction expected for galaxy-scale lenses within standard $\Lambda$CDM models.
+    * **Observed Distribution vs. Threshold:** For the "Original stellar mass" distribution (black hatched bars), a significant portion of the histogram is located to the *right* of the 0.03 $\Lambda$CDM threshold. This means that a large number of observed strong lenses have a proxy stellar mass fraction greater than what standard $\Lambda$CDM models commonly predict. Even when considering the "scaled variants" that reduce the estimated stellar mass (e.g., -25% or -50%), a substantial fraction of lenses still remain at or above the 0.03 threshold.
+    * **The Tension:** This visual evidence highlights the tension: if $\Lambda$CDM models predict most strong lenses should fall at or below $f_\star \approx 0.03$, and our observations consistently show a large number of them above this, it implies a discrepancy. It suggests that the stellar component accounts for a larger fraction of the lensing mass than predicted by $\Lambda$CDM in many observed systems, or that lenses frequently reside in lower-density neighborhoods than $\Lambda$CDM models assume, challenging standard dark matter interpretations.
+
+* **Summary of Lenses Below CDM Threshold vs. Stellar Mass Fraction:**
+
+| $f_\star$ | Lenses Below CDM Threshold | Total Lenses | Percentage Below Threshold (%) |
+| :---- | :------------------------- | :----------- | :----------------------------- |
+| 0.01  | 6                          | 912          | 0.7                            |
+| 0.03  | 42                         | 912          | 4.6                            |
+| 0.05  | 180                        | 912          | 19.7                           |
+| 0.06  | 282                        | 912          | 30.9                           |
+| 0.07  | 414                        | 912          | 45.4                           |
+| 0.08  | 468                        | 912          | 51.3                           |
+| 0.09  | 501                        | 912          | 54.9                           |
+| 0.10  | 561                        | 912          | 61.5                           |
+| 0.20  | 738                        | 912          | 80.9                           |
+
+These results consistently suggest that the stellar component accounts for a significantly larger portion of the lensing mass than predicted by CDM in the majority of systems analyzed. This deviation points either to systematic environmental differences in strong lenses or to a breakdown of dark matter assumptions.
 
 ## 3. Key Findings
 
@@ -52,7 +120,7 @@ Our analysis reveals a significant tension between observed lensing systems and 
 
 **Figure 1: Proxy Stellar Mass Fraction Distribution and $\Lambda$CDM Tension**
 
-![Proxy Stellar Mass Fraction Histogram](images/f_star_histogram.png)
+![Proxy Stellar Mass Fraction Histogram](results/fstar_histogram_scaled_variants.png)
 
 This histogram shows the distribution of the proxy stellar mass fraction ($f_\star$) for 912 strong lensing galaxies. Overlaid distributions illustrate the sensitivity to assumed stellar mass (e.g., $\pm$25%, $\pm$50%, $\pm$75% scaled variants). The red dashed line at $f_\star = 0.03$ marks the canonical $\Lambda$CDM threshold. The figure highlights a tension: a significant fraction of observed lenses have $f_\star$ values higher than predicted by $\Lambda$CDM, even under varying stellar mass assumptions.
 
