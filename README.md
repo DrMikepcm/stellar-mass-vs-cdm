@@ -78,7 +78,7 @@ Our analysis reveals a significant tension between observed lensing systems and 
 
 **Figure 1: Consistency of Strong Lenses with ΛCDM Total Mass Threshold**
 
-![Consistency plot](consistency_plot.png)
+![Consistency plot](results/consistency_plot.png)
 
 This plot shows the percentage of 912 strong gravitational lenses whose inferred total mass surface density falls below the canonical ΛCDM strong lensing threshold of 1×108M⊙​/kpc2, as a function of the assumed stellar baryon fraction (f⋆​). The indigo curve illustrates this relationship, with vertical error bars representing Poisson statistical uncertainties in the calculated percentages. The red dashed line marks the ΛCDM-expected stellar baryon fraction of f⋆​=0.03. At this assumed value, only 4.6% of the lenses have an inferred total mass below the CDM threshold, indicating that the vast majority (95.4%) imply total masses significantly exceeding ΛCDM expectations.
 
