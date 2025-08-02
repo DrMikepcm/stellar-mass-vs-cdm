@@ -76,13 +76,11 @@ Our analysis reveals a significant tension between observed lensing systems and 
 
 * **Prevalence of High $f_\star$:** $\Lambda$CDM-based simulations typically predict low stellar mass fractions for galaxy-scale lenses, with $f_\star \lesssim 0.03$ being common. However, our analysis of 912 strong gravitational lenses shows that only 4.6% fall below this threshold, implying the majority of lenses possess a larger fraction of their total mass in stars than $\Lambda$CDM simulations typically predict.
 
-**Figure 1: Proxy Stellar Mass Fraction Distribution, Sensitivity Analysis, and $\Lambda$CDM Tension**
+**Figure 1: Consistency of Strong Lenses with ΛCDM Total Mass Threshold**
 
-![Proxy Stellar Mass Fraction Histogram](images/f_star_histogram_scaled_variants.png)
+![Consistency plot](consistency_plot.png)
 
-This histogram illustrates the distribution of the proxy stellar mass fraction ($f_\star$) for 912 strong lensing galaxies. To account for uncertainties in stellar mass measurements, overlaid distributions show how $f_\star$ varies when stellar mass is systematically scaled by $\pm$25%, $\pm$50%, and $\pm$75%. This sensitivity analysis highlights the range of possible distributions given assumed measurement uncertainties.
-
-The figure also demonstrates tension with $\Lambda$CDM predictions. The red dashed line at $f_\star = 0.03$ marks the canonical $\Lambda$CDM threshold for the stellar mass fraction. A significant portion of the observed lenses (even when considering reduced stellar mass estimates from the sensitivity analysis) consistently exhibit $f_\star$ values greater than this $\Lambda$CDM threshold. This visual evidence suggests that the stellar component accounts for a larger fraction of the lensing mass than predicted by $\Lambda$CDM models in many observed systems, challenging standard dark matter interpretations.
+This plot shows the percentage of 912 strong gravitational lenses whose inferred total mass surface density falls below the canonical ΛCDM strong lensing threshold of 1×108M⊙​/kpc2, as a function of the assumed stellar baryon fraction (f⋆​). The indigo curve illustrates this relationship, with vertical error bars representing Poisson statistical uncertainties in the calculated percentages. The red dashed line marks the ΛCDM-expected stellar baryon fraction of f⋆​=0.03. At this assumed value, only 4.6% of the lenses have an inferred total mass below the CDM threshold, indicating that the vast majority (95.4%) imply total masses significantly exceeding ΛCDM expectations.
 
 * **Summary of Lenses Below CDM Threshold vs. Stellar Mass Fraction:**
 
