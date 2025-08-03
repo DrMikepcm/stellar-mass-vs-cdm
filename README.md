@@ -76,11 +76,16 @@ Our analysis reveals a significant tension between observed lensing systems and 
 
 * **Prevalence of High $f_\star$:** $\Lambda$CDM-based simulations typically predict low stellar mass fractions for galaxy-scale lenses, with $f_\star \lesssim 0.03$ being common. However, our analysis of 912 strong gravitational lenses shows that only 4.6% fall below this threshold, implying the majority of lenses possess a larger fraction of their total mass in stars than $\Lambda$CDM simulations typically predict.
 
-**Figure 1: Consistency of Strong Lenses with ΛCDM Total Mass Threshold**
+**Figure 1: Sensitivity to Assumed Stellar Mass**
 
 ![Consistency plot](results/consistency_plot.png)
 
-This plot shows the percentage of 912 strong gravitational lenses whose inferred total mass surface density falls below the canonical ΛCDM strong lensing threshold of 1×108M⊙​/kpc2, as a function of the assumed stellar baryon fraction (f⋆​). The indigo curve illustrates this relationship, with vertical error bars representing Poisson statistical uncertainties in the calculated percentages. The red dashed line marks the ΛCDM-expected stellar baryon fraction of f⋆​=0.03. At this assumed value, only 4.6% of the lenses have an inferred total mass below the CDM threshold, indicating that the vast majority (95.4%) imply total masses significantly exceeding ΛCDM expectations.
+Here's the most up-to-date caption for your Figure 1:
+
+---
+Figure 1: Consistency of Strong Lenses with $\Lambda$CDM Total Mass Threshold: Sensitivity to Assumed Stellar Mass. This plot shows the percentage of 912 strong gravitational lenses whose inferred total mass surface density falls below the canonical $\Lambda$CDM strong lensing threshold of $1 \times 10^8 M_\odot / \text{kpc}^2$, as a function of the assumed stellar baryon fraction ($f_\star$). Multiple curves illustrate the sensitivity of these results to different fixed stellar mass assumptions per galaxy. The indigo curve represents the original $5 \times 10^{10} M_\odot$ assumption, while the green, orange, and blue curves show the effect of a 25% reduction ($3.75 \times 10^{10} M_\odot$), a 50% reduction ($2.50 \times 10^{10} M_\odot$), and a 25% increase ($6.25 \times 10^{10} M_\odot$), respectively. Vertical error bars represent Poisson statistical uncertainties. The red dashed line marks the $\Lambda$CDM-expected stellar baryon fraction of $f_\star = 0.03$. At this assumed value, for the original stellar mass, only 6.6% of the lenses have an inferred total mass below the CDM threshold, indicating that the vast majority (93.4%) imply total masses significantly exceeding $\Lambda$CDM expectations, a tension that persists across the explored range of stellar mass assumptions.
+
+
 
 * **Summary of Lenses Below CDM Threshold vs. Stellar Mass Fraction:**
 
