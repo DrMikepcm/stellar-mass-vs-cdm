@@ -1,0 +1,114 @@
+# Install required packages (run once)
+# !pip install astroquery astropy numpy matplotlib
+
+from astroquery.sdss import SDSS
+from astropy.table import vstack
+from astropy.coordinates import SkyCoord, Angle
+import astropy.units as u
+import numpy as np
+import matplotlib.pyplot as plt
+import random
+
+# --- Settings ---
+z_min = 0.2
+z_max = 0.6
+dec_min = -1.25
+dec_max = 1.25
+ra_ranges = [(310, 360), (0, 60)]  # Stripe 82 RA ranges
+ra_step = 5  # degrees, chunk size for querying
+
+exclusion_radius_arcmin = 5  # Minimum distance random points must be from lenses
+search_radius_arcmin = 20    # Radius to count galaxies around points
+num_random_points = 912      # Match number of lenses
+
+# --- Load lens positions ---
+# Example: Replace this with your real lens coords list of tuples [(RA, DEC), ...]
+# Here we generate 912 random lenses in Stripe 82 footprint for demo:
+lens_ras = np.random.uniform(310, 360, 456).tolist() + np.random.uniform(0, 60, 456).tolist()
+lens_decs = np.random.uniform(dec_min, dec_max, 912).tolist()
+lens_coords = SkyCoord(ra=lens_ras*u.deg, dec=lens_decs*u.deg)
+
+# --- Query SDSS Stripe 82 data in chunks ---
+def query_sdss_chunk(ra_min, ra_max, dec_min, dec_max, z_min, z_max):
+    query = f"""
+    SELECT p.objID, p.ra, p.dec, s.z
+    FROM PhotoObj AS p
+    JOIN SpecObjAll AS s ON p.objID = s.bestObjID
+    WHERE p.ra BETWEEN {ra_min} AND {ra_max}
+      AND p.dec BETWEEN {dec_min} AND {dec_max}
+      AND s.z BETWEEN {z_min} AND {z_max}
+      AND p.type = 3
+    """
+    print(f"Querying RA {ra_min} to {ra_max} ...")
+    result = SDSS.query_sql(query)
+    if result is None:
+        print(f"No data returned for RA {ra_min}-{ra_max}")
+        return None
+    else:
+        print(f"Returned {len(result)} rows")
+        return result
+
+all_tables = []
+for ra_min, ra_max in ra_ranges:
+    for ra_start in range(int(ra_min), int(ra_max), ra_step):
+        ra_end = min(ra_start + ra_step, ra_max)
+        tbl = query_sdss_chunk(ra_start, ra_end, dec_min, dec_max, z_min, z_max)
+        if tbl is not None:
+            all_tables.append(tbl)
+
+if not all_tables:
+    raise RuntimeError("No Stripe 82 data found in any chunk.")
+
+galaxies = vstack(all_tables)
+print(f"\nTotal galaxies found in Stripe 82 with {z_min} < z < {z_max}: {len(galaxies)}")
+
+# --- Exclude galaxies within exclusion radius of any lens ---
+gal_coords = SkyCoord(ra=galaxies['ra']*u.deg, dec=galaxies['dec']*u.deg)
+print(f"Excluding galaxies within {exclusion_radius_arcmin}′ of lenses...")
+mask = np.ones(len(galaxies), dtype=bool)
+for lens in lens_coords:
+    sep = lens.separation(gal_coords)
+    mask &= sep > Angle(exclusion_radius_arcmin, unit='arcmin')
+filtered_galaxies = galaxies[mask]
+print(f"{len(filtered_galaxies)} galaxies remain after exclusion.")
+
+# --- Generate random control points in Stripe 82 footprint ---
+print(f"\nGenerating {num_random_points} random sky control points (avoiding lenses within {exclusion_radius_arcmin}′)...")
+random_coords = []
+tries = 0
+while len(random_coords) < num_random_points and tries < 100000:
+    ra_rand = random.uniform(310, 360) if random.random() < 0.5 else random.uniform(0, 60)
+    dec_rand = random.uniform(dec_min, dec_max)
+    candidate = SkyCoord(ra=ra_rand*u.deg, dec=dec_rand*u.deg)
+    # Ensure candidate is > exclusion radius from ALL lenses
+    sep = candidate.separation(lens_coords)
+    if np.all(sep > Angle(exclusion_radius_arcmin, unit='arcmin')):
+        random_coords.append(candidate)
+    tries += 1
+if len(random_coords) < num_random_points:
+    print(f"Warning: Only generated {len(random_coords)} random points after {tries} attempts.")
+
+# --- Count galaxies within search radius around each random control point ---
+print(f"\nCounting galaxies within {search_radius_arcmin}′ of each control point...")
+filtered_gal_coords = SkyCoord(ra=filtered_galaxies['ra']*u.deg, dec=filtered_galaxies['dec']*u.deg)
+counts = []
+for i, rc in enumerate(random_coords, start=1):
+    sep = rc.separation(filtered_gal_coords)
+    count = np.sum(sep < Angle(search_radius_arcmin, unit='arcmin'))
+    counts.append(count)
+    print(f"Point {i}/{len(random_coords)}: {count} galaxies")
+
+# --- Summary stats ---
+counts = np.array(counts)
+print("\n--- Summary statistics ---")
+print(f"Mean galaxy count: {np.mean(counts):.2f}")
+print(f"Median galaxy count: {np.median(counts):.2f}")
+print(f"Standard deviation: {np.std(counts):.2f}")
+
+# --- Histogram ---
+plt.hist(counts, bins=30, edgecolor='black')
+plt.xlabel(f"Galaxy Count per Control Field ({search_radius_arcmin}′ radius)")
+plt.ylabel("Number of Control Fields")
+plt.title("Galaxy Counts in Random Stripe 82 Fields")
+plt.grid(True)
+plt.show()
