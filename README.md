@@ -12,39 +12,6 @@ These findings underscore the need to reconsider the role of dark matter halo pr
 
 ---
 
-## Repository Contents
-
-```
-.
-├── data/
-│   ├── 1486combined_lens_stellar_mass_all_2025Jul.csv
-│   └── stellar_density_random_fields.csv
-├── figures/
-│   ├── Box_plots.png
-│   ├── Kernel_Density.png
-│   ├── Overlaid_historgram_radom_versus_lens.png
-│   ├── Random_sky_Stripe82_distribution_table.png
-│   ├── consistency_plot.png
-│   └── plot_threshold_analysis_results.py
-├── notebooks/
-│   ├── 01_query_lens_stellar_mass_environments.py
-│   ├── bullet_cluster_localized.py
-│   └── lens_stellarmass_distribution_analysis_ipyn.py
-├── scripts/
-│   ├── analyze_stellar_mass.py
-│   ├── bullet_cluster_stellar_mass.py
-│   ├── bullet_cluster_stellar_mass_sed.py
-│   ├── einstein_radius_stellar_density.py
-│   ├── query_simbad_stellar_mass.py
-│   ├── random_sky_stellar_mass_912_point_queery_stripe82
-│   └── stellar_mass_cdm_threshold_analysis.py
-├── .gitignore
-├── LICENSE
-└── README.md
-```
-
----
-
 ## Getting Started (Reproducibility)
 
 ### Requirements
