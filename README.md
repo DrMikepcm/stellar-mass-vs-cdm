@@ -1,3 +1,131 @@
+# Stellar Mass Surface Densities in Strong Gravitational Lenses 🧐
+
+## Overview
+This repository contains the analysis code and data for the paper:  
+Evidence for Strong Gravitational Lenses Exhibiting Higher-than-Expected Stellar Mass Surface Densities Under Lambda CDM Assumptions
+
+Our work reveals a significant tension with standard Lambda CDM models. We show that a large majority of 912 strong lensing systems have stellar mass surface densities that imply total masses well above the canonical Lambda CDM strong lensing threshold of 1 × 10^8 M_⊙ / kpc². This suggests that stellar baryons may play a more significant role in the lensing mass budget than is commonly assumed.
+
+A detailed case study of the Bullet Cluster (1E 0657–56) reinforces this finding, with its core stellar mass density implying a total mass density nearly two orders of magnitude above the standard threshold.
+
+---
+
+## 🚀 Getting Started
+
+### Requirements
+This analysis uses several Python libraries for astronomical data querying and manipulation.
+
+To install all required packages, run:
+
+```bash
+pip install numpy pandas astropy astroquery matplotlib lenscat photutils
+```
+
+---
+
+## Reproducing the Analysis
+The main analysis is split into several scripts that can be run sequentially.
+
+1. Query Stellar Mass Environments  
+Uses lenscat and astroquery to retrieve galaxy counts and calculate stellar mass surface densities for each lens:
+
+```bash
+python scripts/query_simbad_stellar_mass.py
+```
+
+2. Perform CDM Threshold Analysis  
+Compares the calculated stellar densities to Lambda CDM expectations. Generates the key figures and tables:
+
+```bash
+python scripts/stellar_mass_cdm_threshold_analysis.py
+```
+
+3. Bullet Cluster Case Study  
+Provides independent methods to estimate the stellar mass for the Bullet Cluster:
+
+```bash
+python scripts/bullet_cluster_stellar_mass.py
+python scripts/einstein_radius_stellar_density.py
+python scripts/bullet_cluster_stellar_mass_sed.py
+```
+
+---
+
+## Key Findings
+
+### 1. Prevalence of High-Density Lenses
+
+Only 4.6% of the 912 strong lenses studied have an inferred total mass density below the ΛCDM threshold of 1 × 10⁸ M⊙/kpc², assuming a stellar baryon fraction of f★ = 0.03.
+
+| f★   | Lenses Below CDM Threshold | Total Lenses | Percentage Below Threshold (%) |
+|------|----------------------------|--------------|--------------------------------|
+| 0.01 | 6                          | 912          | 0.7                            |
+| 0.03 | 42                         | 912          | 4.6                            |
+| 0.05 | 180                        | 912          | 19.7                           |
+| 0.06 | 282                        | 912          | 30.9                           |
+| 0.07 | 414                        | 912          | 45.4                           |
+| 0.08 | 468                        | 912          | 51.3                           |
+| 0.09 | 501                        | 912          | 54.9                           |
+| 0.10 | 561                        | 912          | 61.5                           |
+| 0.20 | 738                        | 912          | 80.9                           |
+
+These results suggest that the stellar component accounts for a significantly larger fraction of the lensing mass than predicted by ΛCDM in most systems. This deviation may indicate systematic environmental differences in strong lenses or a breakdown of standard dark matter assumptions.
+
+---
+
+### 2. Lenses vs. Random Fields
+
+The stellar mass surface density of the strong lens sample is significantly higher and more widely distributed than that of a random sky sample.
+
+| Statistic             | Lens Sample Value (M⊙/kpc²) | Random Sample Value (M⊙/kpc²) |
+|-----------------------|-----------------------------|--------------------------------|
+| Mean Σ★               | 9.97 × 10⁶                  | 1.03 × 10⁶                     |
+| Median Σ★             | 4.79 × 10⁶                  | 8.60 × 10⁵                     |
+| Standard Deviation Σ★ | 3.26 × 10⁷                  | 9.76 × 10⁴                     |
+
+Number of samples: 912 for both lenses and random sky points.
+
+The mean stellar mass surface density of the lens sample is about 9.68 times higher than that of the random sky sample. This nearly order-of-magnitude difference underscores that strong gravitational lenses are preferentially located in regions with much higher stellar mass concentration than typical sky fields.
+
+---
+
+### 3. Bullet Cluster Anomaly
+
+The Bullet Cluster (1E 0657–56) shows a core stellar mass surface density implying a total mass density nearly two orders of magnitude above the standard ΛCDM strong lensing threshold.
+
+| Quantity                           | Value                                         | Notes                                    |
+|------------------------------------|-----------------------------------------------|------------------------------------------|
+| Redshift (z)                       | 0.296                                         | Bullet Cluster system                    |
+| Radius                              | 0.5′                                          | Circular aperture centered on core       |
+| Central Galaxy Coordinates          | RA: 104.6458°, Dec: –55.6748°                 | Dominant lensing galaxy                  |
+| WISE W1 Luminosity                  | 1.05 × 10¹¹ L⊙                                | From 3.4 µm flux                         |
+| M/L Ratio (W1)                      | 0.6 M⊙/L⊙                                    | Standard for old stellar populations     |
+| Refined Stellar Mass                | 6.3 × 10¹⁰ M⊙                                 | From WISE W1 and M/L = 0.6                |
+| Assumed Einstein Radius             | 5 kpc                                         | Typical lensing scale                    |
+| Stellar Surface Density (Σ★)        | 8.0 × 10⁸ M⊙/kpc²                             | Within aperture                          |
+| SED-Based Total Stellar Mass        | ~3.0 × 10¹¹ M⊙                                | From public catalogs (SED fitting)       |
+| Total Σ★ Over Full Extent           | 2.06 × 10⁹ M⊙/kpc²                            | Using total mass and effective radius    |
+| Implied Total Mass Surface Density  | 1.6 × 10¹⁰ M⊙/kpc²                            | From Σ★ and f★ = 0.05                    |
+| CDM Halo Threshold                  | ~10⁸ M⊙/kpc²                                  | Canonical value (Donato et al. 2009)     |
+
+This localized measurement aligns with and strengthens the broader survey results, suggesting that in some massive clusters, stellar mass alone may be sufficient to explain lensing, posing a challenge to standard dark matter interpretations.
+
+
+## 🔗 Data & Citation
+
+- Data: The raw data for both the lens sample and the random sky control fields are available in the `data/` directory.  
+- Code: The full analysis code can be found in the `scripts/` directory.
+
+If you use this work in your research, please cite the associated paper.
+
+---
+
+## 📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+
+
+
 # Evidence for Strong Gravitational Lenses in Low-Density Stellar Environments Challenges Standard Cold Dark Matter Models
 
 ---
@@ -86,19 +214,8 @@ Our analysis reveals a significant tension between observed lensing systems and 
 
 * **Summary of Lenses Below CDM Threshold vs. Stellar Mass Fraction:**
 
-| $f_\star$ | Lenses Below CDM Threshold | Total Lenses | Percentage Below Threshold (%) |
-| :-------- | :------------------------- | :----------- | :----------------------------- |
-| 0.01      | 6                          | 912          | 0.7                            |
-| 0.03      | 42                         | 912          | 4.6                            |
-| 0.05      | 180                        | 912          | 19.7                           |
-| 0.06      | 282                        | 912          | 30.9                           |
-| 0.07      | 414                        | 912          | 45.4                           |
-| 0.08      | 468                        | 912          | 51.3                           |
-| 0.09      | 501                        | 912          | 54.9                           |
-| 0.10      | 561                        | 912          | 61.5                           |
-| 0.20      | 738                        | 912          | 80.9                           |
 
-These results consistently suggest that the stellar component accounts for a significantly larger portion of the lensing mass than predicted by $\Lambda$CDM in the majority of systems analyzed. This deviation points either to systematic environmental differences in strong lenses or to a breakdown of dark matter assumptions.
+
 
 ---
 
@@ -358,22 +475,6 @@ which significantly exceeds the canonical CDM strong lensing threshold of $1 \ti
 
 ### 4.2. Bullet Cluster Core Galaxy Properties & Estimation Summary
 
-| Quantity                                     | Value                                         | Notes                                    |
-| :------------------------------------------- | :-------------------------------------------- | :--------------------------------------- |
-| Redshift ($z$)                               | 0.296                                         | Bullet Cluster system                    |
-| Radius                                       | 0.5′                                          | Circular aperture centered on core       |
-| Central Galaxy Coordinates                   | RA: 104.6458°, Dec: –55.6748°                 | Dominant lensing galaxy                  |
-| WISE W1 Luminosity                           | $1.05 \times 10^{11} L_{\odot}$               | From 3.4 µm flux                         |
-| $M/L$ Ratio (W1)                             | $0.6\, M_{\odot}/L_{\odot}$                   | Standard for old stellar populations     |
-| Refined Stellar Mass                         | $6.3 \times 10^{10} M_{\odot}$                | From WISE W1 and $M/L = 0.6$             |
-| Assumed Einstein Radius                      | 5 kpc                                         | Typical lensing scale                    |
-| Stellar Surface Density ($\Sigma_*$)         | $8.0 \times 10^{8} M_{\odot}/\mathrm{kpc}^2$ | Within aperture                          |
-| SED-Based Total Stellar Mass                 | $\sim 3.0 \times 10^{11} M_{\odot}$           | From public catalogs (SED fitting)       |
-| Total $\Sigma_*$ Over Full Extent            | $2.06 \times 10^{9} M_{\odot}/\mathrm{kpc}^2$ | Using total mass and effective radius    |
-| Implied Total Mass Surface Density           | $1.6 \times 10^{10} M_{\odot}/\mathrm{kpc}^2$ | From $\Sigma_*$ and $f_* = 0.05$         |
-| CDM Halo Threshold                           | $\sim 10^{8} M_{\odot}/\mathrm{kpc}^2$        | Canonical value (Donato et al. 2009)     |
-
-This localized measurement supports and refines our broader survey results, indicating that stellar mass alone may explain lensing in some massive clusters, challenging standard dark matter interpretations.
 
 ---
 
