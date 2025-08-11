@@ -1,16 +1,17 @@
-# Stellar Mass Surface Densities in Strong Gravitational Lenses 🧐
+# Stellar Mass Surface Densities in Strong Gravitational Lenses 
 
 ## Overview
-This repository contains the analysis code and data for the paper:  
-Evidence for Strong Gravitational Lenses Exhibiting Higher-than-Expected Stellar Mass Surface Densities Under Lambda CDM Assumptions
 
-Our work reveals a significant tension with standard Lambda CDM models. We show that a large majority of 912 strong lensing systems have stellar mass surface densities that imply total masses well above the canonical Lambda CDM strong lensing threshold of 1 × 10^8 M_⊙ / kpc². This suggests that stellar baryons may play a more significant role in the lensing mass budget than is commonly assumed.
+This repository analyzes stellar mass distributions in 912 strong gravitational lensing systems, revealing significant tension with standard Cold Dark Matter (ΛCDM) model predictions.
 
-A detailed case study of the Bullet Cluster (1E 0657–56) reinforces this finding, with its core stellar mass density implying a total mass density nearly two orders of magnitude above the standard threshold.
+Assuming a typical stellar baryon fraction = 0.03, most lenses have stellar mass surface densities implying total masses well above the canonical ΛCDM strong lensing threshold of 1 × 10⁸ M⊙/kpc². Even with conservative reductions in stellar mass, these lenses exceed the expected limits, suggesting stellar baryons may play a larger role in lensing mass budgets than commonly assumed.
+
+A detailed case study of the Bullet Cluster (1E 0657–56) reinforces this, with its core stellar mass density nearly two orders of magnitude above the standard threshold.
+
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Requirements
 This analysis uses several Python libraries for astronomical data querying and manipulation.
@@ -71,6 +72,14 @@ Only 4.6% of the 912 strong lenses studied have an inferred total mass density b
 
 These results suggest that the stellar component accounts for a significantly larger fraction of the lensing mass than predicted by ΛCDM in most systems. This deviation may indicate systematic environmental differences in strong lenses or a breakdown of standard dark matter assumptions.
 
+**Figure 1: Sensitivity to Assumed Stellar Mass**
+
+![Consistency plot](results/consistency_plot.png)
+
+Here's the most up-to-date caption for your Figure 1:
+
+---
+*Figure 1: Consistency of Strong Lenses with $\Lambda$CDM Total Mass Threshold: Sensitivity to Assumed Stellar Mass. This plot shows the percentage of 912 strong gravitational lenses whose inferred total mass surface density falls below the canonical $\Lambda$CDM strong lensing threshold of $1 \times 10^8 M_\odot / \text{kpc}^2$, as a function of the assumed stellar baryon fraction ($f_\star$). Multiple curves illustrate the sensitivity of these results to different fixed stellar mass assumptions per galaxy. The indigo curve represents the original $5 \times 10^{10} M_\odot$ assumption, while the green, orange, and blue curves show the effect of a 25% reduction ($3.75 \times 10^{10} M_\odot$), a 50% reduction ($2.50 \times 10^{10} M_\odot$), and a 25% increase ($6.25 \times 10^{10} M_\odot$), respectively. Vertical error bars represent Poisson statistical uncertainties. The red dashed line marks the $\Lambda$CDM-expected stellar baryon fraction of $f_\star = 0.03$. At this assumed value, for the original stellar mass, only 6.6% of the lenses have an inferred total mass below the CDM threshold, indicating that the vast majority (93.4%) imply total masses potentially exceeding $\Lambda$CDM expectations, a finding that persists across the explored range of stellar mass assumptions.*
 ---
 
 ### 2. Lenses vs. Random Fields
@@ -89,9 +98,33 @@ The mean stellar mass surface density of the lens sample is about 9.68 times hig
 
 ---
 
-### 3. Bullet Cluster Anomaly
+### 3. Bullet Cluster Study
 
+
+To complement the statistical trends, we performed a direct analysis of the Bullet Cluster (1E 0657–558) using WISE W1-band photometry. Localized Stellar Mass and Surface Density Estimation
+
+We conducted a focused search for galaxies within a 0.5 arcminute radius around the Bullet Cluster center (RA = 104.6458°, DEC = -55.6748°), isolating the region responsible for strong lensing and minimizing contamination. Using the SIMBAD database, a single dominant galaxy was identified.
+
+Stellar mass estimation proceeded as follows:
+* **Luminosity Distance:** Using the galaxy redshift $z = 0.296$, luminosity distance was computed with Planck18 cosmology.
+* **Absolute Magnitude & Luminosity:** Converted from WISE W1 apparent magnitude ($\sim$16.685) to absolute magnitude ($M_{W1}$) and then to luminosity in solar units ($L_{W1}$), using the Sun’s absolute W1 magnitude $M_{\odot,W1} \approx 3.24$.
+* **Stellar Mass:** Applying a mass-to-light ratio $(M/L)_{W1} = 0.6 \, M_{\odot} / L_{\odot}$, typical for old stellar populations, yielded a stellar mass estimate of approximately $6.3 \times 10^{10} \, M_{\odot}$ for the localized galaxy.
+
+Alternatively, using the WISE W1 magnitude within the same 0.5′ aperture and an assumed Einstein radius $R_E = 5\, \mathrm{kpc}$, we derived a stellar surface mass density:
+
+$$
+\Sigma_* = \frac{M_*}{\pi R_E^2} \approx 4.9 \times 10^{8} \, M_{\odot}/\mathrm{kpc}^2
+$$
+
+Assuming a typical cosmic baryon fraction $f_* = 0.05$, the implied total mass surface density is:
+
+$$
+\Sigma_{\mathrm{total}} = \frac{\Sigma_*}{f_*} \approx 9.8 \times 10^{9} \, M_{\odot}/\mathrm{kpc}^2,
+$$
+
+which significantly exceeds the canonical CDM strong lensing threshold of $1 \times 10^{8} \, M_{\odot}/\mathrm{kpc}^2$. This case study illustrates that the Bullet Cluster's strong lensing region contains substantial stellar mass, sufficient to account for the observed lensing effects without invoking large dark matter halos.
 The Bullet Cluster (1E 0657–56) shows a core stellar mass surface density implying a total mass density nearly two orders of magnitude above the standard ΛCDM strong lensing threshold.
+
 
 | Quantity                           | Value                                         | Notes                                    |
 |------------------------------------|-----------------------------------------------|------------------------------------------|
@@ -108,12 +141,36 @@ The Bullet Cluster (1E 0657–56) shows a core stellar mass surface density impl
 | Implied Total Mass Surface Density  | 1.6 × 10¹⁰ M⊙/kpc²                            | From Σ★ and f★ = 0.05                    |
 | CDM Halo Threshold                  | ~10⁸ M⊙/kpc²                                  | Canonical value (Donato et al. 2009)     |
 
+
 This localized measurement aligns with and strengthens the broader survey results, suggesting that in some massive clusters, stellar mass alone may be sufficient to explain lensing, posing a challenge to standard dark matter interpretations.
 
+## Discussion
 
-## 🔗 Data & Citation
+These findings suggest that either dark matter halos in lens systems are systematically more massive or concentrated than predicted, or that additional factors—such as environmental contributions, external shear, or alternative physics—play a critical role in producing observed strong lensing. Our work thus challenges standard assumptions about lens environments within the CDM paradigm.
 
-- Data: The raw data for both the lens sample and the random sky control fields are available in the `data/` directory.  
+This project began as an attempt to identify gravitational lenses in low-density environments, initially focusing on gas mass. When reliable gas data proved difficult to obtain, we pivoted to stellar mass surface density as a practical tracer. Surprisingly, this simple approach revealed that a significant fraction of known strong lenses lie in regions where stellar mass alone may account for the observed lensing, raising new questions about the necessity of dark matter in these systems.
+
+Our findings revealed something unexpected: a significant fraction of strong lenses reside in environments with relatively high stellar mass, and yet CDM models—when calibrated to reasonable baryon fractions—often overpredict the total lensing mass. In these cases, the dark matter contribution inferred by CDM exceeds what is needed to explain the observed lensing, given the high stellar mass already present. This leads to a clear tension: if the halos are as massive as CDM predicts, the light bending should be stronger than observed.
+
+In other words, many lenses appear to require weaker or less massive halos than CDM would assign based on their stellar content. This suggests that:
+
+- CDM may overestimate halo mass or concentration in such fields, or
+
+- An alternative explanation (e.g., geometric effects from compact objects like black holes) may account for the lensing without invoking large unseen mass.
+
+These results challenge a key assumption of the CDM framework—that dark matter halos dominate lensing mass—and indicate that high stellar mass alone can often explain observed lensing, even in the absence of strong dark matter halos.
+
+This opens a path for new models of cosmic structure that do not rely on massive halos, and it strengthens the case for considering geometric or non-halo-based mechanisms behind gravitational lensing.
+
+---
+
+## 5. Conclusions
+
+The presence of strong gravitational lenses in low-density stellar environments underscores the need to revisit dark matter halo modeling and environmental effects in lensing studies. Future work with larger samples and detailed environment characterization will further elucidate the interplay between baryons and dark matter in shaping strong lensing phenomena.
+
+##  Data & Citation
+
+- Data: The raw data for both the lens sample and the random sky control fields are available in the `results/` directory.  
 - Code: The full analysis code can be found in the `scripts/` directory.
 
 If you use this work in your research, please cite the associated paper.
@@ -210,7 +267,7 @@ Our analysis reveals a significant tension between observed lensing systems and 
 
     ![Consistency of Strong Lenses with ΛCDM Total Mass Threshold](figures/consistency_plot.png)
 
-    *Figure 1: Consistency of Strong Lenses with $\Lambda$CDM Total Mass Threshold: Sensitivity to Assumed Stellar Mass. This plot shows the percentage of 912 strong gravitational lenses whose inferred total mass surface density falls below the canonical $\Lambda$CDM strong lensing threshold of $1 \times 10^8 M_\odot / \text{kpc}^2$, as a function of the assumed stellar baryon fraction ($f_\star$). Multiple curves illustrate the sensitivity of these results to different fixed stellar mass assumptions per galaxy. The indigo curve represents the original $5 \times 10^{10} M_\odot$ assumption, while the green, orange, and blue curves show the effect of a 25% reduction ($3.75 \times 10^{10} M_\odot$), a 50% reduction ($2.50 \times 10^{10} M_\odot$), and a 25% increase ($6.25 \times 10^{10} M_\odot$), respectively. Vertical error bars represent Poisson statistical uncertainties. The red dashed line marks the $\Lambda$CDM-expected stellar baryon fraction of $f_\star = 0.03$. At this assumed value, for the original stellar mass, only 6.6% of the lenses have an inferred total mass below the CDM threshold, indicating that the vast majority (93.4%) imply total masses potentially exceeding $\Lambda$CDM expectations, a finding that persists across the explored range of stellar mass assumptions.*
+    
 
 * **Summary of Lenses Below CDM Threshold vs. Stellar Mass Fraction:**
 
@@ -242,11 +299,7 @@ A focused analysis of the **Bullet Cluster (1E 0657–558)** using WISE W1-band 
 
 ---
 
-## Discussion & Conclusion
 
-Our findings suggest that either dark matter halos in lens systems are systematically more massive or concentrated than predicted by $\Lambda$CDM, or that additional factors—such as environmental contributions, external shear, or alternative physics—play a critical role in producing observed strong lensing. This work thus challenges standard assumptions about lens environments within the $\Lambda$CDM paradigm.
-
-The observed presence of strong gravitational lenses in what appear to be relatively low-density stellar environments, particularly with higher-than-expected stellar mass fractions, underscores the need to revisit dark matter halo modeling and environmental effects in lensing studies. Future work with larger samples and detailed environment characterization will further elucidate the interplay between baryons and dark matter in shaping strong lensing phenomena.
 
 ---
 
@@ -347,14 +400,7 @@ Our analysis reveals a significant tension between observed lensing systems and 
 
 * **Prevalence of High $f_\star$:** $\Lambda$CDM-based simulations typically predict low stellar mass fractions for galaxy-scale lenses, with $f_\star \lesssim 0.03$ being common. However, our analysis of 912 strong gravitational lenses shows that only 4.6% fall below this threshold, implying the majority of lenses possess a larger fraction of their total mass in stars than $\Lambda$CDM simulations typically predict.
 
-**Figure 1: Sensitivity to Assumed Stellar Mass**
 
-![Consistency plot](results/consistency_plot.png)
-
-Here's the most up-to-date caption for your Figure 1:
-
----
-Figure 1: Consistency of Strong Lenses with $\Lambda$CDM Total Mass Threshold: Sensitivity to Assumed Stellar Mass. This plot shows the percentage of 912 strong gravitational lenses whose inferred total mass surface density falls below the canonical $\Lambda$CDM strong lensing threshold of $1 \times 10^8 M_\odot / \text{kpc}^2$, as a function of the assumed stellar baryon fraction ($f_\star$). Multiple curves illustrate the sensitivity of these results to different fixed stellar mass assumptions per galaxy. The indigo curve represents the original $5 \times 10^{10} M_\odot$ assumption, while the green, orange, and blue curves show the effect of a 25% reduction ($3.75 \times 10^{10} M_\odot$), a 50% reduction ($2.50 \times 10^{10} M_\odot$), and a 25% increase ($6.25 \times 10^{10} M_\odot$), respectively. Vertical error bars represent Poisson statistical uncertainties. The red dashed line marks the $\Lambda$CDM-expected stellar baryon fraction of $f_\star = 0.03$. At this assumed value, for the original stellar mass, only 6.6% of the lenses have an inferred total mass below the CDM threshold, indicating that the vast majority (93.4%) imply total masses significantly exceeding $\Lambda$CDM expectations, a tension that persists across the explored range of stellar mass assumptions.
 
 
 
@@ -382,15 +428,10 @@ Our analysis reveals a significant tension between observed lensing systems and 
 
 **Figure 1: Proxy Stellar Mass Fraction Distribution, Sensitivity Analysis, and $\Lambda$CDM Tension**
 
-![Proxy Stellar Mass Fraction Histogram](results/fstar_histogram_scaled_variants.png)
-
-This histogram presents a comprehensive view of the proxy stellar mass fraction ($f_\star$) for 912 strong lensing galaxies, derived from our observational sample. The x-axis represents the proxy stellar mass fraction, zoomed to show values from 0.000 to 0.042, while the y-axis indicates the number of lenses within each bin.
 
 The figure is designed to illustrate two key aspects of our research:
 
-1.  **Illustration of "Error Bars" (Sensitivity Analysis):** The histogram does not display traditional error bars on individual data points or bins. Instead, it illustrates the **sensitivity of our results to uncertainties in stellar mass measurements** by showing scaled variants of the proxy stellar mass fraction.
-    * **Scaled Distributions:** The plot shows multiple histograms overlaid: "Original stellar mass" (black hatched bars) represents your primary calculation of the proxy stellar mass fraction ($f_\star$). Then, there are **scaled variants** where the underlying stellar mass is hypothetically adjusted: "-75% stellar mass", "-50% stellar mass", "-25% stellar mass", "+25% stellar mass", "+50% stellar mass", and "+75% stellar mass". These are generated in the script by multiplying the `f_star_proxy` by factors like 0.25, 0.5, 0.75, 1.25, 1.5, and 1.75 respectively.
-    * **Interpretation as Uncertainty Bounds:** Each of these scaled distributions represents a scenario where stellar mass estimates might be systematically lower or higher by a certain percentage. By observing how the overall shape and position of the histogram shift under these scenarios, we effectively show the **range of possible distributions** given an assumed uncertainty in stellar mass measurements. For example, if the true stellar mass were 25% lower, the distribution would look like the blue bars, and if it were 25% higher, it would look like the light green bars. This provides a robust way to understand how conclusions might change within reasonable bounds of measurement uncertainty, highlighting the impact of systematic biases in stellar mass estimation.
+
 
 2.  **Illustration of Tension with Cold Dark Matter ($\Lambda$CDM):** The histogram effectively illustrates the tension between our stellar mass measurements and $\Lambda$CDM predictions through the placement of the distributions relative to the $\Lambda$CDM threshold.
     * **The $\Lambda$CDM Threshold:** The prominent **red dashed vertical line at $f_\star = 0.03$** represents the "$\Lambda$CDM threshold". This value is typically a common prediction for the maximum stellar mass fraction expected for galaxy-scale lenses within standard $\Lambda$CDM models.
@@ -419,11 +460,7 @@ Our analysis reveals a significant tension between observed lensing systems and 
 
 * **Prevalence of High $f_*$:** CDM-based simulations typically predict low stellar mass fractions for galaxy-scale lenses, with $f_* \lesssim 0.03$ being common. However, our analysis of 912 strong gravitational lenses shows that only 4.6% fall below this threshold, implying the majority of lenses possess a larger fraction of their total mass in stars than CDM simulations typically predict.
 
-**Figure 1: Proxy Stellar Mass Fraction Distribution and $\Lambda$CDM Tension**
-
-![Proxy Stellar Mass Fraction Histogram](results/fstar_histogram_scaled_variants.png)
-
-This histogram shows the distribution of the proxy stellar mass fraction ($f_\star$) for 912 strong lensing galaxies. Overlaid distributions illustrate the sensitivity to assumed stellar mass (e.g., $\pm$25%, $\pm$50%, $\pm$75% scaled variants). The red dashed line at $f_\star = 0.03$ marks the canonical $\Lambda$CDM threshold. The figure highlights a tension: a significant fraction of observed lenses have $f_\star$ values higher than predicted by $\Lambda$CDM, even under varying stellar mass assumptions.
+*
 
 
 * **Prevalence of High $f_*$:** CDM-based simulations typically predict low stellar mass fractions for galaxy-scale lenses, with $f_* \lesssim 0.03$ being common. However, our analysis of 912 strong gravitational lenses shows that only 4.6% fall below this threshold, implying the majority of lenses possess a larger fraction of their total mass in stars than CDM simulations typically predict.
@@ -448,30 +485,6 @@ These results consistently suggest that the stellar component accounts for a sig
 
 ## 4. Bullet Cluster Case Study
 
-To complement the statistical trends, we performed a direct analysis of the Bullet Cluster (1E 0657–558) using WISE W1-band photometry.
-
-### 4.1. Localized Stellar Mass and Surface Density Estimation
-
-We conducted a focused search for galaxies within a 0.5 arcminute radius around the Bullet Cluster center (RA = 104.6458°, DEC = -55.6748°), isolating the region responsible for strong lensing and minimizing contamination. Using the SIMBAD database, a single dominant galaxy was identified.
-
-Stellar mass estimation proceeded as follows:
-* **Luminosity Distance:** Using the galaxy redshift $z = 0.296$, luminosity distance was computed with Planck18 cosmology.
-* **Absolute Magnitude & Luminosity:** Converted from WISE W1 apparent magnitude ($\sim$16.685) to absolute magnitude ($M_{W1}$) and then to luminosity in solar units ($L_{W1}$), using the Sun’s absolute W1 magnitude $M_{\odot,W1} \approx 3.24$.
-* **Stellar Mass:** Applying a mass-to-light ratio $(M/L)_{W1} = 0.6 \, M_{\odot} / L_{\odot}$, typical for old stellar populations, yielded a stellar mass estimate of approximately $6.3 \times 10^{10} \, M_{\odot}$ for the localized galaxy.
-
-Alternatively, using the WISE W1 magnitude within the same 0.5′ aperture and an assumed Einstein radius $R_E = 5\, \mathrm{kpc}$, we derived a stellar surface mass density:
-
-$$
-\Sigma_* = \frac{M_*}{\pi R_E^2} \approx 4.9 \times 10^{8} \, M_{\odot}/\mathrm{kpc}^2
-$$
-
-Assuming a typical cosmic baryon fraction $f_* = 0.05$, the implied total mass surface density is:
-
-$$
-\Sigma_{\mathrm{total}} = \frac{\Sigma_*}{f_*} \approx 9.8 \times 10^{9} \, M_{\odot}/\mathrm{kpc}^2,
-$$
-
-which significantly exceeds the canonical CDM strong lensing threshold of $1 \times 10^{8} \, M_{\odot}/\mathrm{kpc}^2$. This case study illustrates that the Bullet Cluster's strong lensing region contains substantial stellar mass, sufficient to account for the observed lensing effects without invoking large dark matter halos.
 
 ### 4.2. Bullet Cluster Core Galaxy Properties & Estimation Summary
 
@@ -760,29 +773,7 @@ This localized measurement supports and refines our broader survey results, indi
 
 
 
-## Discussion
 
-These findings suggest that either dark matter halos in lens systems are systematically more massive or concentrated than predicted, or that additional factors—such as environmental contributions, external shear, or alternative physics—play a critical role in producing observed strong lensing. Our work thus challenges standard assumptions about lens environments within the CDM paradigm.
-
-This project began as an attempt to identify gravitational lenses in low-density environments, initially focusing on gas mass. When reliable gas data proved difficult to obtain, we pivoted to stellar mass surface density as a practical tracer. Surprisingly, this simple approach revealed that a significant fraction of known strong lenses lie in regions where stellar mass alone may account for the observed lensing, raising new questions about the necessity of dark matter in these systems.
-
-Our findings revealed something unexpected: a significant fraction of strong lenses reside in environments with relatively high stellar mass, and yet CDM models—when calibrated to reasonable baryon fractions—often overpredict the total lensing mass. In these cases, the dark matter contribution inferred by CDM exceeds what is needed to explain the observed lensing, given the high stellar mass already present. This leads to a clear tension: if the halos are as massive as CDM predicts, the light bending should be stronger than observed.
-
-In other words, many lenses appear to require weaker or less massive halos than CDM would assign based on their stellar content. This suggests that:
-
-- CDM may overestimate halo mass or concentration in such fields, or
-
-- An alternative explanation (e.g., geometric effects from compact objects like black holes) may account for the lensing without invoking large unseen mass.
-
-These results challenge a key assumption of the CDM framework—that dark matter halos dominate lensing mass—and indicate that high stellar mass alone can often explain observed lensing, even in the absence of strong dark matter halos.
-
-This opens a path for new models of cosmic structure that do not rely on massive halos, and it strengthens the case for considering geometric or non-halo-based mechanisms behind gravitational lensing.
-
----
-
-## 5. Conclusions
-
-The presence of strong gravitational lenses in low-density stellar environments underscores the need to revisit dark matter halo modeling and environmental effects in lensing studies. Future work with larger samples and detailed environment characterization will further elucidate the interplay between baryons and dark matter in shaping strong lensing phenomena.
 
 ---
 ## Data
