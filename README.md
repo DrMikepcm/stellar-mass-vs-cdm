@@ -18,7 +18,7 @@ Assuming a typical stellar baryon fraction, most lenses have stellar mass surfac
 
 ## Repository Contents
 * `notebooks/`: Jupyter notebooks for interactive data exploration and visualization.
-* `results/`: Plots comparing inferred mass densities to $\\Lambda$CDM expectations.
+* `results/`: Plots comparing inferred mass densities to ΛCDM expectations.
 * `scripts/`: Python scripts to reproduce the full analysis from data acquisition to final figures.
 * `data/`: Raw data and control samples, including `1486combined_lens_stellar_mass_all_2025Jul.csv` and `stellar_density_random_fields.csv`.
 
@@ -34,7 +34,7 @@ To reproduce the main analysis and figures, follow these steps:
     ```
 
 2.  **Analyze Stellar Mass Distributions:**
-    This script performs statistical comparisons between the lens sample and random sky fields, generating plots like `Box_plots.png`, `Kernel_Density.png`, and `Overlaid_historgram_radom_versus_lens.png`.
+    This script performs statistical comparisons between the lens sample and random sky fields, generating plots like `Box_plots.png`, `Kernel_Density.png`, and `Overlaid_histogram_radom_versus_lens.png`.
     ```bash
     python scripts/analyze_stellar_mass.py
     ```
