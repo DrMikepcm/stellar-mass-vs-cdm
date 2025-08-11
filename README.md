@@ -2,15 +2,15 @@
 
 ## Overview
 
-This repository analyzes stellar mass distributions in 912 strong gravitational lensing systems, revealing significant tension with standard Cold Dark Matter ($\Lambda$CDM) model predictions.
+This repository analyzes stellar mass distributions in 912 strong gravitational lensing systems, revealing significant tension with standard Cold Dark Matter (ΛCDM) model predictions.
 
-Assuming a typical stellar baryon fraction, most lenses have stellar mass surface densities implying a total mass well above the canonical $\Lambda$CDM strong lensing threshold. This suggests that the stellar component may play a larger role in the lensing mass budget than commonly assumed.
+Assuming a typical stellar baryon fraction, most lenses have stellar mass surface densities implying a total mass well above the canonical ΛCDM strong lensing threshold. This suggests that the stellar component may play a larger role in the lensing mass budget than commonly assumed.
 
 
 ---
 
 ## Key Findings
-* **High-Density Environments:** Only **4.6%** of the 912 lenses have an inferred total mass density below the $\\Lambda$CDM threshold (assuming a stellar baryon fraction of $f_* = 0.03$).
+* **High-Density Environments:** Only **4.6%** of the 912 lenses have an inferred total mass density below the ΛCDM threshold (assuming a stellar baryon fraction of $f_* = 0.03$).
 * **Lenses vs. Random Fields:** The mean stellar mass surface density of the lens sample is **~10 times higher** than that of a random sky sample, indicating that lenses are preferentially located in high-density environments.
 * **Bullet Cluster Case Study:** A localized analysis of the Bullet Cluster's core shows a stellar mass density nearly **two orders of magnitude** above the standard $\\Lambda$CDM strong lensing threshold.
 
@@ -74,7 +74,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgements
 Thanks to the teams behind [Astroquery](https://astroquery.readthedocs.io/), [Lenscat](https://github.com/username/lenscat), [SIMBAD](http://simbad.u-strasbg.fr/simbad/), and the Sloan Digital Sky Survey (SDSS). 
-The code and manuscript were prepared with the assistance of a large language model.
+
+The code and manuscript within this repositiory were prepared with the assistance of a large language model.
 
 ---
 
