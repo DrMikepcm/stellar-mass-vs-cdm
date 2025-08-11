@@ -12,7 +12,7 @@ Assuming a typical stellar baryon fraction, most lenses have stellar mass surfac
 ## Key Findings
 * **High-Density Environments:** Only **4.6%** of the 912 lenses have an inferred total mass density below the ΛCDM threshold (assuming a stellar baryon fraction of $f_* = 0.03$).
 * **Lenses vs. Random Fields:** The mean stellar mass surface density of the lens sample is **~10 times higher** than that of a random sky sample, indicating that lenses are preferentially located in high-density environments.
-* **Bullet Cluster Case Study:** A localized analysis of the Bullet Cluster's core shows a stellar mass density nearly **two orders of magnitude** above the standard $\\Lambda$CDM strong lensing threshold.
+* **Bullet Cluster Case Study:** A localized analysis of the Bullet Cluster's core shows a stellar mass density nearly **two orders of magnitude** above the standard ΛCDM strong lensing threshold.
 
 ---
 
@@ -40,7 +40,7 @@ To reproduce the main analysis and figures, follow these steps:
     ```
 
 3.  **Perform CDM Threshold Analysis:**
-    This script compares estimated stellar surface densities to $\\Lambda$CDM expectations based on a fiducial stellar baryon fraction.
+    This script compares estimated stellar surface densities to ΛCDM expectations based on a fiducial stellar baryon fraction.
     ```bash
     python scripts/stellar_mass_cdm_threshold_analysis.py
     ```
@@ -75,7 +75,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgements
 Thanks to the teams behind [Astroquery](https://astroquery.readthedocs.io/), [Lenscat](https://github.com/username/lenscat), [SIMBAD](http://simbad.u-strasbg.fr/simbad/), and the Sloan Digital Sky Survey (SDSS). 
 
-The code and manuscript within this repositiory were prepared with the assistance of a large language model.
+The code and manuscript within this repository were prepared with the assistance of a large language model.
 
 ---
 
