@@ -10,9 +10,15 @@ A detailed case study of the Bullet Cluster (1E 0657–56) reinforces this, with
 
 ---
 
-### Running the Analysis
+## Repository Contents
 
-To reproduce the main analysis and figures:
+- `notebooks/`: Jupyter notebooks for interactive analysis
+- `results/`: Lens data and random field control samples/Plots comparing inferred mass densities to ΛCDM expectations
+- `scripts/`: Python code for querying, filtering, and analyzing galaxy environments 
+
+---
+
+## ### Running the Analysis; Scripts to reproduce the main analysis and figures:
 
 1.  **Query Stellar Mass Environments:**
     This script uses `lenscat` and `astroquery` to query the SIMBAD database for stellar-like objects within 20 arcminutes of each strong lens, computing a projected stellar mass surface density.
@@ -58,6 +64,20 @@ These scripts provide independent methods to estimate the stellar mass surface d
 
 ---
 
+ ## Data
+
+All raw results are contained in [`data/1486combined_lens_stellar_mass_all_2025Jul.csv`](data/1486combined_lens_stellar_mass_all_2025Jul.csv), which includes:
+
+* Lens ID, RA, DEC, redshift
+* All nearby SIMBAD stellar mass tracers
+* Surface density calculations (per arcmin²)
+
+The random sky control sample data is in [`data/stellar_density_random_fields.csv`](data/stellar_density_random_fields.csv).
+ 
+Plots: Random field versus lenses stellar mass dentsity commparisons including box plots, Kernel Density, and overlap historgram are also avaialble in the`results/` directory.
+
+---
+
 ## 2. Methods
 
 We developed a pipeline to estimate the total stellar mass in the environment surrounding strong gravitational lenses using Sloan Digital Sky Survey (SDSS) photometric data accessed via `Astroquery`, and compare these to theoretical CDM strong lensing thresholds.
@@ -84,7 +104,7 @@ $$
 
 These inferred total densities are then compared to the canonical CDM strong lensing threshold of $\Sigma_{\text{threshold}} = 1 \times 10^8 \; M_\odot / \text{kpc}^2$.
 
-
+---
 
 ## Key Findings
 
@@ -106,10 +126,7 @@ Only 4.6% of the 912 strong lenses studied have an inferred total mass density b
 
 These results suggest that the stellar component accounts for a significantly larger fraction of the lensing mass than predicted by ΛCDM in most systems. This deviation may indicate systematic environmental differences in strong lenses or a breakdown of standard dark matter assumptions.
 
-**Figure 1: Sensitivity to Assumed Stellar Mass**
-
 ![Consistency plot](results/consistency_plot.png)
-
 
 ---
 
@@ -130,7 +147,6 @@ The mean stellar mass surface density of the lens sample is about 9.68 times hig
 ---
 
 ### 3. Bullet Cluster Study
-
 
 To complement the statistical trends, we performed a direct analysis of the Bullet Cluster (1E 0657–558) using WISE W1-band photometry. Localized Stellar Mass and Surface Density Estimation
 
@@ -201,45 +217,6 @@ The presence of strong gravitational lenses in low-density stellar environments 
 
 ---
 
-## Data
-
-All raw results are contained in [`data/1486combined_lens_stellar_mass_all_2025Jul.csv`](data/1486combined_lens_stellar_mass_all_2025Jul.csv), which includes:
-
-* Lens ID, RA, DEC, redshift
-* All nearby SIMBAD stellar mass tracers
-* Surface density calculations (per arcmin²)
-
-The random sky control sample data is in [`data/stellar_density_random_fields.csv`](data/stellar_density_random_fields.csv).
- 
-Plots: Random field versus lenses stellar mass dentsity commparisons including box plots, Kernel Density, and overlap historgram are also avaialble in the`results/` directory.
-
- ---
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## Citation
-
-If you use this work, please cite the associated preprint (to be added after arXiv upload).
-
----
-## Acknowledgements
-
-- Thanks to the teams behind [Astroquery](https://astroquery.readthedocs.io/), [Lenscat](https://github.com/username/lenscat), [SIMBAD](http://simbad.u-strasbg.fr/simbad/), and other open-source tools used in this analysis.
-
-- Based on data from the Sloan Digital Sky Survey (SDSS) and WISE.
--Code and manuscript were prepared with the assistance of a large language model.
----
-
-##  Contact
-
-For questions or collaborations, please contact [Your Name](mailto:your.email@example.com).
-
----
-
 ## Next Steps
 
 - Add spectroscopic stellar mass measurements.
@@ -249,18 +226,21 @@ For questions or collaborations, please contact [Your Name](mailto:your.email@ex
 - Compare with hydrodynamical simulations.
 
 - Extend analysis to larger lens samples.
+-
+---
 
+## License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+---
 
+## Acknowledgements
 
+- Thanks to the teams behind [Astroquery](https://astroquery.readthedocs.io/), [Lenscat](https://github.com/username/lenscat), [SIMBAD](http://simbad.u-strasbg.fr/simbad/), and other open-source tools used in this analysis.
 
-## Repository Contents
-
-- `data/`: Lens data and random field control samples
-- `scripts/`: Python code for querying, filtering, and analyzing galaxy environments
-- `figures/`: Plots comparing inferred mass densities to ΛCDM expectations
-- `notebooks/`: (Optional) Jupyter notebooks for interactive analysis
+- Based on data from the Sloan Digital Sky Survey (SDSS) and WISE.
+-Code and manuscript were prepared with the assistance of a large language model.
 
 ---
 
@@ -278,15 +258,18 @@ For questions or collaborations, please contact [Your Name](mailto:your.email@ex
 
 ---
 
-## 📖 Citation
+## Citation
 
-If you use this code or results, please cite this GitHub repository and/or the forthcoming publication:
-
-**"Observed Stellar Mass Environments Around Gravitational Lenses Challenge CDM Threshold Predictions"**
+If you use this code or results, please cite this GitHub repository 
 
 ---
 
-## 🧩 License
+## License
 
 This repository is licensed under the [MIT License](LICENSE).
+
+##  Contact
+
+For questions or collaborations, please contact [Michael Feldstien](mailto:mjay10016@gmail.com).
+
 
