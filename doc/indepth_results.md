@@ -78,15 +78,15 @@ Plots: Random field versus lenses stellar mass dentsity commparisons including b
 
 ---
 
-## 2. Methods
+## Methods
 
 We developed a pipeline to estimate the total stellar mass in the environment surrounding strong gravitational lenses using Sloan Digital Sky Survey (SDSS) photometric data accessed via `Astroquery`, and compare these to theoretical CDM strong lensing thresholds.
 
-### 2.1. Sample and Data Acquisition
+### Sample and Data Acquisition
 
 Our analysis utilizes a sample of 912 strong lens systems [ref 1] from a publicly available strong lens catalog imported via the `lenscat` Python package, which provides lens coordinates (RA, DEC), lens redshifts, and identifiers.
 
-### 2.2. Environmental Stellar Mass Estimation Pipeline
+### Environmental Stellar Mass Estimation Pipeline
 
 For each lens with a valid redshift, we query the SDSS photometric catalog to retrieve sources within a 20 arcminute radius of the lens position, tiling the search region with overlapping circular tiles for efficiency.
 
