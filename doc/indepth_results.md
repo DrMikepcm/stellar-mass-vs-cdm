@@ -126,8 +126,6 @@ Only 4.6% of the 912 strong lenses studied have an inferred total mass density b
 
 These results suggest that the stellar component accounts for a significantly larger fraction of the lensing mass than predicted by ΛCDM in most systems. This deviation may indicate systematic environmental differences in strong lenses or a breakdown of standard dark matter assumptions.
 
-![Consistency plot](results/consistency_plot.png)
-
 ---
 
 ### 2. Lenses vs. Random Fields
